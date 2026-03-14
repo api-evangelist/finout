@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/api-evangelist/finout/blob/main/json-schema/cost-guard-scan.json",
+  "title": "Finout CostGuard Scan",
+  "description": "A CostGuard scan configuration that identifies cost optimization opportunities and waste across cloud resources.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "The unique identifier of the scan."
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the scan."
+    },
+    "lastRunTime": {
+      "type": "string",
+      "description": "The last time the scan was executed."
+    },
+    "status": {
+      "type": "string",
+      "description": "The current status of the scan."
+    }
+  },
+  "required": ["id", "name"]
+}

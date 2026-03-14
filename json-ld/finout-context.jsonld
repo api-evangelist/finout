@@ -1,0 +1,86 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "finout": "https://app.finout.io/v1/",
+    "viewId": {
+      "@id": "finout:viewId",
+      "@type": "xsd:string"
+    },
+    "accountId": {
+      "@id": "finout:accountId",
+      "@type": "xsd:string"
+    },
+    "scanId": {
+      "@id": "finout:scanId",
+      "@type": "xsd:string"
+    },
+    "scanName": {
+      "@id": "finout:scanName",
+      "@type": "xsd:string"
+    },
+    "scanLastRunTime": {
+      "@id": "finout:scanLastRunTime",
+      "@type": "xsd:dateTime"
+    },
+    "scanTotalCost": {
+      "@id": "finout:scanTotalCost",
+      "@type": "xsd:double"
+    },
+    "scanTotalWaste": {
+      "@id": "finout:scanTotalWaste",
+      "@type": "xsd:double"
+    },
+    "scanYearlyPotentialSavings": {
+      "@id": "finout:scanYearlyPotentialSavings",
+      "@type": "xsd:double"
+    },
+    "lastRunTime": {
+      "@id": "finout:lastRunTime",
+      "@type": "xsd:dateTime"
+    },
+    "status": {
+      "@id": "finout:status",
+      "@type": "xsd:string"
+    },
+    "costCenter": {
+      "@id": "finout:costCenter",
+      "@type": "xsd:string"
+    },
+    "operator": {
+      "@id": "finout:operator",
+      "@type": "xsd:string"
+    },
+    "rules": {
+      "@id": "finout:rules",
+      "@type": "@json"
+    },
+    "filter": {
+      "@id": "finout:filter",
+      "@type": "@json"
+    },
+    "configuration": {
+      "@id": "finout:configuration",
+      "@type": "@json"
+    },
+    "unixTimeMillSecondsStart": {
+      "@id": "finout:unixTimeMillSecondsStart",
+      "@type": "xsd:integer"
+    },
+    "unixTimeMillSecondsEnd": {
+      "@id": "finout:unixTimeMillSecondsEnd",
+      "@type": "xsd:integer"
+    },
+    "requestId": {
+      "@id": "finout:requestId",
+      "@type": "xsd:string"
+    },
+    "groupBy": {
+      "@id": "finout:groupBy",
+      "@type": "xsd:string"
+    },
+    "name": "schema:name",
+    "description": "schema:description",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "schema": "https://schema.org/"
+  }
+}

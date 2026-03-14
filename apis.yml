@@ -15,6 +15,18 @@ apis:
         type: Documentation
       - url: openapi/finout-api-openapi.yml
         type: OpenAPI
+      - url: json-schema/virtual-tag.json
+        type: JSONSchema
+      - url: json-schema/cost-query.json
+        type: JSONSchema
+      - url: json-schema/cost-guard-scan.json
+        type: JSONSchema
+      - url: json-schema/endpoint.json
+        type: JSONSchema
+      - url: json-schema/scan-recommendation.json
+        type: JSONSchema
+      - url: json-ld/finout-context.jsonld
+        type: JSONLD
     description: >-
       Finout is a FinOps platform that gives companies end-to-end visibility and
       control over cloud and SaaS spend. It unifies costs from multiple

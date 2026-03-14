@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/api-evangelist/finout/blob/main/json-schema/scan-recommendation.json",
+  "title": "Finout Scan Recommendation",
+  "description": "A CostGuard scan recommendation response containing identified resources, cost analysis, waste metrics, and potential savings for cloud optimization.",
+  "type": "object",
+  "properties": {
+    "requestId": {
+      "type": "string",
+      "description": "The ID of this specific request."
+    },
+    "scanName": {
+      "type": "string",
+      "description": "The name of the scan."
+    },
+    "scanLastRunTime": {
+      "type": "string",
+      "description": "The last time the scan was run."
+    },
+    "scanTotalCost": {
+      "type": "number",
+      "description": "The sum of resources cost identified by the scan during the analysis days."
+    },
+    "scanTotalWaste": {
+      "type": "number",
+      "description": "Waste of the scan during the analysis days."
+    },
+    "scanYearlyPotentialSavings": {
+      "type": "number",
+      "description": "Yearly potential savings for the scan based on the scan's total waste."
+    },
+    "resources": {
+      "type": "array",
+      "description": "Resources identified in the scan with optimization recommendations.",
+      "items": {
+        "type": "object",
+        "additionalProperties": true
+      }
+    }
+  },
+  "required": ["requestId", "scanName"]
+}

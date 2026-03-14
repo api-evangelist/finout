@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/api-evangelist/finout/blob/main/json-schema/virtual-tag.json",
+  "title": "Finout Virtual Tag",
+  "description": "A virtual tag configuration used for resource allocation and filtering in Finout, enabling cost attribution to teams, services, environments, and customers even when native tagging is incomplete.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "The unique identifier of the virtual tag."
+    },
+    "accountId": {
+      "type": "string",
+      "description": "The unique identifier of the account associated with the virtual tag."
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the virtual tag."
+    },
+    "rules": {
+      "type": "array",
+      "description": "An array of rule objects that define the filtering criteria for the virtual tag.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The name or value assigned when the rule matches."
+          },
+          "filter": {
+            "$ref": "https://github.com/api-evangelist/finout/blob/main/json-schema/virtual-tag.json#/$defs/FilterObject"
+          }
+        }
+      }
+    }
+  },
+  "required": ["id", "name"],
+  "$defs": {
+    "FilterObject": {
+      "type": "object",
+      "description": "A filter object used to narrow query results, supporting logical AND/OR grouping and various operators.",
+      "properties": {
+        "costCenter": {
+          "type": "string",
+          "description": "The cost center to filter on (e.g., AWS, GCP, Azure)."
+        },
+        "key": {
+          "type": "string",
+          "description": "The MegaBill key to filter by."
+        },
+        "displayName": {
+          "type": "string",
+          "description": "The display name for the filter field."
+        },
+        "operator": {
+          "type": "string",
+          "description": "The filter operator.",
+          "enum": ["oneOf", "notOneOf", "is", "isNot", "contains", "notContains", "exists", "notExists"]
+        },
+        "value": {
+          "description": "The value or values to match against.",
+          "oneOf": [
+            { "type": "string" },
+            { "type": "array", "items": { "type": "string" } }
+          ]
+        },
+        "and": {
+          "type": "array",
+          "description": "Logical AND grouping of filter conditions.",
+          "items": {
+            "$ref": "https://github.com/api-evangelist/finout/blob/main/json-schema/virtual-tag.json#/$defs/FilterObject"
+          }
+        },
+        "or": {
+          "type": "array",
+          "description": "Logical OR grouping of filter conditions.",
+          "items": {
+            "$ref": "https://github.com/api-evangelist/finout/blob/main/json-schema/virtual-tag.json#/$defs/FilterObject"
+          }
+        }
+      }
+    }
+  }
+}

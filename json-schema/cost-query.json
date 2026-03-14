@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/api-evangelist/finout/blob/main/json-schema/cost-query.json",
+  "title": "Finout Cost Query",
+  "description": "A cost query request used to analyze cloud spend using user-defined Finout Views, supporting date ranges and filters for granular cost insights.",
+  "type": "object",
+  "properties": {
+    "viewId": {
+      "type": "string",
+      "description": "The ID of the Finout View to query."
+    },
+    "date": {
+      "type": "object",
+      "description": "Optional date range for the query. Must either be fully specified or omitted entirely.",
+      "properties": {
+        "unixTimeMillSecondsStart": {
+          "type": "integer",
+          "description": "Start of the date range in Unix milliseconds (UTC)."
+        },
+        "unixTimeMillSecondsEnd": {
+          "type": "integer",
+          "description": "End of the date range in Unix milliseconds (UTC)."
+        }
+      }
+    },
+    "filter": {
+      "type": "object",
+      "description": "A filter object used to narrow query results, supporting logical AND/OR grouping and various operators.",
+      "properties": {
+        "costCenter": {
+          "type": "string",
+          "description": "The cost center to filter on (e.g., AWS, GCP, Azure)."
+        },
+        "key": {
+          "type": "string",
+          "description": "The MegaBill key to filter by."
+        },
+        "displayName": {
+          "type": "string",
+          "description": "The display name for the filter field."
+        },
+        "operator": {
+          "type": "string",
+          "description": "The filter operator.",
+          "enum": ["oneOf", "notOneOf", "is", "isNot", "contains", "notContains", "exists", "notExists"]
+        },
+        "value": {
+          "description": "The value or values to match against.",
+          "oneOf": [
+            { "type": "string" },
+            { "type": "array", "items": { "type": "string" } }
+          ]
+        }
+      }
+    }
+  },
+  "required": ["viewId"]
+}
