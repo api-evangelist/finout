@@ -1,0 +1,682 @@
+openapi: 3.1.0
+info:
+  title: Finout API
+  description: >-
+    The Finout API provides seamless access to powerful cloud cost management
+    tools, enabling you to integrate, analyze, and optimize your cloud expenses.
+    It includes endpoints for cost insights, tagging, forecasting, and more,
+    empowering teams to automate workflows, track spending, and drive efficiency
+    across cloud environments.
+  version: 1.0.0
+  contact:
+    name: Finout
+    url: https://www.finout.io/
+  termsOfService: https://www.finout.io/
+servers:
+  - url: https://app.finout.io/v1
+    description: Finout Production API
+security:
+  - clientId: []
+    secretKey: []
+tags:
+  - name: Cost
+    description: Query and analyze costs using Finout Views
+  - name: Virtual Tags
+    description: Create, retrieve, update, and delete Virtual Tag configurations
+  - name: Virtual Tag Metadata
+    description: Manage metadata for virtual tags
+  - name: Query Language
+    description: Query MegaBill keys, values, and metadata for building filters
+  - name: CostGuard
+    description: Retrieve CostGuard scans and recommendations
+  - name: Endpoints
+    description: Query and create notification endpoints
+paths:
+  /view:
+    post:
+      operationId: queryCosts
+      summary: Query costs for a view
+      description: >-
+        Query and analyze costs using user-defined Finout Views. You can query
+        the costs for any date range of up to 90 days specified in UTC
+        timestamps. You must either specify dates or delete them completely;
+        the query will not work when blank dates are still present.
+      tags:
+        - Cost
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - viewId
+              properties:
+                viewId:
+                  type: string
+                  description: The ID of the Finout View to query.
+                date:
+                  type: object
+                  description: >-
+                    Optional date range. Must either be fully specified or
+                    omitted entirely.
+                  properties:
+                    unixTimeMillSecondsStart:
+                      type: integer
+                      format: int64
+                      description: Start of the date range in Unix milliseconds (UTC).
+                    unixTimeMillSecondsEnd:
+                      type: integer
+                      format: int64
+                      description: End of the date range in Unix milliseconds (UTC).
+                filter:
+                  $ref: '#/components/schemas/FilterObject'
+      responses:
+        '200':
+          description: Successful cost query response.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      additionalProperties: true
+        '400':
+          description: Bad request. The request was malformed or missing required fields.
+        '401':
+          description: Unauthorized. Invalid or missing authentication credentials.
+        '429':
+          description: Too many requests. Rate limit exceeded.
+  /virtual-tag:
+    get:
+      operationId: listVirtualTags
+      summary: Get all virtual tags
+      description: Retrieves all virtual tag configurations for the account.
+      tags:
+        - Virtual Tags
+      responses:
+        '200':
+          description: A list of virtual tag configurations.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/VirtualTag'
+        '401':
+          description: Unauthorized.
+        '429':
+          description: Too many requests.
+    post:
+      operationId: createVirtualTag
+      summary: Create a virtual tag
+      description: Creates a new virtual tag configuration.
+      tags:
+        - Virtual Tags
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VirtualTagInput'
+      responses:
+        '200':
+          description: Virtual tag created successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VirtualTag'
+        '400':
+          description: Bad request.
+        '401':
+          description: Unauthorized.
+        '429':
+          description: Too many requests.
+    put:
+      operationId: updateVirtualTag
+      summary: Update a virtual tag
+      description: Updates an existing virtual tag configuration.
+      tags:
+        - Virtual Tags
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VirtualTag'
+      responses:
+        '200':
+          description: Virtual tag updated successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VirtualTag'
+        '400':
+          description: Bad request.
+        '401':
+          description: Unauthorized.
+        '404':
+          description: Virtual tag not found.
+        '429':
+          description: Too many requests.
+  /virtual-tag/{id}:
+    get:
+      operationId: getVirtualTagById
+      summary: Get a virtual tag by ID
+      description: Retrieves a specific virtual tag configuration by its unique identifier.
+      tags:
+        - Virtual Tags
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: The unique identifier of the virtual tag.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: The requested virtual tag configuration.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VirtualTag'
+        '401':
+          description: Unauthorized.
+        '404':
+          description: Virtual tag not found.
+        '429':
+          description: Too many requests.
+    delete:
+      operationId: deleteVirtualTag
+      summary: Delete a virtual tag
+      description: Deletes a virtual tag configuration by its unique identifier.
+      tags:
+        - Virtual Tags
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: The unique identifier of the virtual tag to delete.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Virtual tag deleted successfully.
+        '401':
+          description: Unauthorized.
+        '404':
+          description: Virtual tag not found.
+        '429':
+          description: Too many requests.
+  /virtual-tags/{virtualTagId}/metadata:
+    get:
+      operationId: getVirtualTagMetadata
+      summary: Get virtual tag metadata
+      description: >-
+        Retrieves metadata for a specific virtual tag. When grouping by virtual
+        tag, if virtual tag values include endpoint metadata, they will
+        automatically be populated and updated.
+      tags:
+        - Virtual Tag Metadata
+      parameters:
+        - name: virtualTagId
+          in: path
+          required: true
+          description: The unique identifier of the virtual tag.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Virtual tag metadata retrieved successfully.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+        '401':
+          description: Unauthorized.
+        '404':
+          description: Virtual tag not found.
+        '429':
+          description: Too many requests.
+    put:
+      operationId: updateVirtualTagMetadata
+      summary: Update virtual tag metadata
+      description: >-
+        Updates metadata for a specific virtual tag, including endpoint
+        information for each virtual tag value.
+      tags:
+        - Virtual Tag Metadata
+      parameters:
+        - name: virtualTagId
+          in: path
+          required: true
+          description: The unique identifier of the virtual tag.
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: true
+      responses:
+        '200':
+          description: Virtual tag metadata updated successfully.
+        '400':
+          description: Bad request.
+        '401':
+          description: Unauthorized.
+        '404':
+          description: Virtual tag not found.
+        '429':
+          description: Too many requests.
+  /megabill/query-language/keys:
+    get:
+      operationId: getMegaBillKeys
+      summary: Get all MegaBill keys
+      description: >-
+        Retrieves all MegaBill keys. This endpoint is used to understand the
+        different building blocks of Finout's MegaFilter, and the information
+        needed to build Virtual Tags and views.
+      tags:
+        - Query Language
+      responses:
+        '200':
+          description: A list of MegaBill keys.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    key:
+                      type: string
+                    displayName:
+                      type: string
+                    costCenter:
+                      type: string
+        '401':
+          description: Unauthorized.
+        '429':
+          description: Too many requests.
+  /megabill/query-language/values/{costCenter}/{key}:
+    get:
+      operationId: getMegaBillKeyValues
+      summary: Get values for a MegaBill key
+      description: >-
+        Retrieves the available values for a specific MegaBill key within a cost
+        center.
+      tags:
+        - Query Language
+      parameters:
+        - name: costCenter
+          in: path
+          required: true
+          description: The cost center to query (e.g., AWS, GCP, Azure).
+          schema:
+            type: string
+        - name: key
+          in: path
+          required: true
+          description: The MegaBill key to retrieve values for.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: A list of values for the specified key.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+        '401':
+          description: Unauthorized.
+        '404':
+          description: Key or cost center not found.
+        '429':
+          description: Too many requests.
+  /megabill/query-language/virtual-tags:
+    get:
+      operationId: getMegaBillVirtualTags
+      summary: Get MegaBill virtual tags
+      description: >-
+        Retrieves virtual tags available in the MegaBill for use in filters
+        and views.
+      tags:
+        - Query Language
+      responses:
+        '200':
+          description: A list of virtual tags in MegaBill.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  additionalProperties: true
+        '401':
+          description: Unauthorized.
+        '429':
+          description: Too many requests.
+  /cost-guard/scans:
+    get:
+      operationId: listCostGuardScans
+      summary: Get all CostGuard scans
+      description: Retrieves all CostGuard scan options available for the account.
+      tags:
+        - CostGuard
+      responses:
+        '200':
+          description: A list of CostGuard scan options.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CostGuardScan'
+        '401':
+          description: Unauthorized.
+        '429':
+          description: Too many requests.
+  /cost-guard/scans-recommendations:
+    post:
+      operationId: getCostGuardScanRecommendations
+      summary: Get scan recommendations
+      description: >-
+        Retrieves all resources identified in a scan based on scanId, optional
+        filters, and groupBy. You must first GET the scan you want to query
+        and then add the scan ID to the body of the POST query.
+      tags:
+        - CostGuard
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - scanId
+              properties:
+                scanId:
+                  type: string
+                  description: The ID of the CostGuard scan to retrieve recommendations for.
+                filter:
+                  $ref: '#/components/schemas/FilterObject'
+                groupBy:
+                  type: string
+                  description: Optional field to group results by.
+      responses:
+        '200':
+          description: Scan recommendations retrieved successfully.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  requestId:
+                    type: string
+                    description: The ID of this specific request.
+                  scanName:
+                    type: string
+                    description: The name of the scan.
+                  scanLastRunTime:
+                    type: string
+                    description: The last time the scan was run.
+                  scanTotalCost:
+                    type: number
+                    format: double
+                    description: >-
+                      The sum of resources cost identified by the scan during the
+                      analysis days.
+                  scanTotalWaste:
+                    type: number
+                    format: double
+                    description: Waste of the scan during the analysis days.
+                  scanYearlyPotentialSavings:
+                    type: number
+                    format: double
+                    description: >-
+                      Yearly potential savings for the scan based on the scan's
+                      total waste.
+                  resources:
+                    type: array
+                    items:
+                      type: object
+                      additionalProperties: true
+        '400':
+          description: Bad request.
+        '401':
+          description: Unauthorized.
+        '429':
+          description: Too many requests.
+  /endpoints:
+    get:
+      operationId: listEndpoints
+      summary: Get all endpoints
+      description: Gets a list of all notification endpoints for the account.
+      tags:
+        - Endpoints
+      responses:
+        '200':
+          description: A list of endpoints.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Endpoint'
+        '401':
+          description: Unauthorized.
+        '429':
+          description: Too many requests.
+    post:
+      operationId: createEndpoint
+      summary: Create an endpoint
+      description: >-
+        Creates an email, Slack, or Microsoft Teams notification endpoint
+        in Finout.
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EndpointInput'
+      responses:
+        '200':
+          description: Endpoint created successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Endpoint'
+        '400':
+          description: Bad request.
+        '401':
+          description: Unauthorized.
+        '429':
+          description: Too many requests.
+components:
+  securitySchemes:
+    clientId:
+      type: apiKey
+      in: header
+      name: x-finout-client-id
+      description: >-
+        The Client ID generated from the Finout Admin Portal under API Tokens.
+    secretKey:
+      type: apiKey
+      in: header
+      name: x-finout-secret-key
+      description: >-
+        The Secret Key generated from the Finout Admin Portal under API Tokens.
+        This value is only shown once at generation time.
+  schemas:
+    FilterObject:
+      type: object
+      description: >-
+        A filter object used to narrow query results. Supports logical AND/OR
+        grouping and various operators for matching conditions.
+      properties:
+        costCenter:
+          type: string
+          description: The cost center to filter on (e.g., AWS, GCP, Azure).
+        key:
+          type: string
+          description: The MegaBill key to filter by.
+        displayName:
+          type: string
+          description: The display name for the filter field.
+        operator:
+          type: string
+          description: The filter operator.
+          enum:
+            - oneOf
+            - notOneOf
+            - is
+            - isNot
+            - contains
+            - notContains
+            - exists
+            - notExists
+        value:
+          description: >-
+            The value or values to match against. Can be a string or array
+            of strings depending on the operator.
+          oneOf:
+            - type: string
+            - type: array
+              items:
+                type: string
+        and:
+          type: array
+          description: Logical AND grouping of filter conditions.
+          items:
+            $ref: '#/components/schemas/FilterObject'
+        or:
+          type: array
+          description: Logical OR grouping of filter conditions.
+          items:
+            $ref: '#/components/schemas/FilterObject'
+    VirtualTag:
+      type: object
+      description: A virtual tag configuration used for resource allocation and filtering.
+      properties:
+        id:
+          type: string
+          description: The unique identifier of the virtual tag.
+        accountId:
+          type: string
+          description: The unique identifier of the account associated with the virtual tag.
+        name:
+          type: string
+          description: The name of the virtual tag.
+        rules:
+          type: array
+          description: An array of rule objects that define the filtering criteria.
+          items:
+            $ref: '#/components/schemas/VirtualTagRule'
+    VirtualTagInput:
+      type: object
+      description: Input for creating a virtual tag.
+      required:
+        - name
+        - rules
+      properties:
+        name:
+          type: string
+          description: The name of the virtual tag.
+        rules:
+          type: array
+          description: An array of rule objects that define the filtering criteria.
+          items:
+            $ref: '#/components/schemas/VirtualTagRule'
+    VirtualTagRule:
+      type: object
+      description: >-
+        A rule within a virtual tag that defines filtering criteria for
+        resource allocation.
+      properties:
+        name:
+          type: string
+          description: The name or value assigned when the rule matches.
+        filter:
+          $ref: '#/components/schemas/FilterObject'
+    CostGuardScan:
+      type: object
+      description: A CostGuard scan configuration.
+      properties:
+        id:
+          type: string
+          description: The unique identifier of the scan.
+        name:
+          type: string
+          description: The name of the scan.
+        lastRunTime:
+          type: string
+          description: The last time the scan was executed.
+        status:
+          type: string
+          description: The current status of the scan.
+    Endpoint:
+      type: object
+      description: A notification endpoint configuration.
+      properties:
+        id:
+          type: string
+          description: The unique identifier of the endpoint.
+        name:
+          type: string
+          description: The name of the endpoint.
+        type:
+          type: string
+          description: The type of endpoint.
+          enum:
+            - email
+            - slack
+            - teams
+        configuration:
+          type: object
+          description: Endpoint-specific configuration.
+          properties:
+            to:
+              type: string
+              description: >-
+                The destination address. An email address for email endpoints
+                or a webhook URL for Slack/Teams endpoints.
+    EndpointInput:
+      type: object
+      description: Input for creating a notification endpoint.
+      required:
+        - name
+        - type
+        - configuration
+      properties:
+        name:
+          type: string
+          description: The name of the endpoint.
+        type:
+          type: string
+          description: The type of endpoint to create.
+          enum:
+            - email
+            - slack
+            - teams
+        configuration:
+          type: object
+          required:
+            - to
+          description: Endpoint-specific configuration.
+          properties:
+            to:
+              type: string
+              description: >-
+                The destination address. An email address for email endpoints
+                or a webhook URL for Slack/Teams endpoints.

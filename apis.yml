@@ -8,10 +8,13 @@ apis:
       - FinOps
       - Costs
       - Budgets
-    humanURL: ' https://www.finout.io/'
+    humanURL: https://www.finout.io/
+    baseURL: https://app.finout.io/v1
     properties:
-      - url: ' https://www.finout.io/'
+      - url: https://docs.finout.io/api/finout-api
         type: Documentation
+      - url: openapi/finout-api-openapi.yml
+        type: OpenAPI
     description: >-
       Finout is a FinOps platform that gives companies end-to-end visibility and
       control over cloud and SaaS spend. It unifies costs from multiple
@@ -33,7 +36,7 @@ type: Contract
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 access: 3rd-Party
 created: '2026-01-02'
-modified: '2026-01-03'
+modified: '2026-03-14'
 position: Consuming
 description: >-
   Finout is an enterprise-grade FinOps solution that helps companies easily
