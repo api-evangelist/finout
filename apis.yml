@@ -5,9 +5,9 @@ apis:
   - aid: finout:finout
     name: Finout
     tags:
-      - FinOps
-      - Costs
       - Budgets
+      - Costs
+      - FinOps
     humanURL: https://www.finout.io/
     baseURL: https://app.finout.io/v1
     properties:
@@ -36,9 +36,9 @@ apis:
       feature or per customer.
 name: Finout
 tags:
-  - FinOps
-  - Costs
   - Budgets
+  - Costs
+  - FinOps
 type: Contract
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 access: 3rd-Party

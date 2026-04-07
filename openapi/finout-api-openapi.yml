@@ -21,16 +21,16 @@ security:
 tags:
   - name: Cost
     description: Query and analyze costs using Finout Views
-  - name: Virtual Tags
-    description: Create, retrieve, update, and delete Virtual Tag configurations
-  - name: Virtual Tag Metadata
-    description: Manage metadata for virtual tags
-  - name: Query Language
-    description: Query MegaBill keys, values, and metadata for building filters
   - name: CostGuard
     description: Retrieve CostGuard scans and recommendations
   - name: Endpoints
     description: Query and create notification endpoints
+  - name: Query Language
+    description: Query MegaBill keys, values, and metadata for building filters
+  - name: Virtual Tag Metadata
+    description: Manage metadata for virtual tags
+  - name: Virtual Tags
+    description: Create, retrieve, update, and delete Virtual Tag configurations
 paths:
   /view:
     post:
