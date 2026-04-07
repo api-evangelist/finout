@@ -35,7 +35,7 @@ paths:
   /view:
     post:
       operationId: queryCosts
-      summary: Query costs for a view
+      summary: Finout Query costs for a view
       description: >-
         Query and analyze costs using user-defined Finout Views. You can query
         the costs for any date range of up to 90 days specified in UTC
@@ -93,7 +93,7 @@ paths:
   /virtual-tag:
     get:
       operationId: listVirtualTags
-      summary: Get all virtual tags
+      summary: Finout Get all virtual tags
       description: Retrieves all virtual tag configurations for the account.
       tags:
         - Virtual Tags
@@ -112,7 +112,7 @@ paths:
           description: Too many requests.
     post:
       operationId: createVirtualTag
-      summary: Create a virtual tag
+      summary: Finout Create a virtual tag
       description: Creates a new virtual tag configuration.
       tags:
         - Virtual Tags
@@ -137,7 +137,7 @@ paths:
           description: Too many requests.
     put:
       operationId: updateVirtualTag
-      summary: Update a virtual tag
+      summary: Finout Update a virtual tag
       description: Updates an existing virtual tag configuration.
       tags:
         - Virtual Tags
@@ -165,7 +165,7 @@ paths:
   /virtual-tag/{id}:
     get:
       operationId: getVirtualTagById
-      summary: Get a virtual tag by ID
+      summary: Finout Get a virtual tag by ID
       description: Retrieves a specific virtual tag configuration by its unique identifier.
       tags:
         - Virtual Tags
@@ -191,7 +191,7 @@ paths:
           description: Too many requests.
     delete:
       operationId: deleteVirtualTag
-      summary: Delete a virtual tag
+      summary: Finout Delete a virtual tag
       description: Deletes a virtual tag configuration by its unique identifier.
       tags:
         - Virtual Tags
@@ -214,7 +214,7 @@ paths:
   /virtual-tags/{virtualTagId}/metadata:
     get:
       operationId: getVirtualTagMetadata
-      summary: Get virtual tag metadata
+      summary: Finout Get virtual tag metadata
       description: >-
         Retrieves metadata for a specific virtual tag. When grouping by virtual
         tag, if virtual tag values include endpoint metadata, they will
@@ -244,7 +244,7 @@ paths:
           description: Too many requests.
     put:
       operationId: updateVirtualTagMetadata
-      summary: Update virtual tag metadata
+      summary: Finout Update virtual tag metadata
       description: >-
         Updates metadata for a specific virtual tag, including endpoint
         information for each virtual tag value.
@@ -278,7 +278,7 @@ paths:
   /megabill/query-language/keys:
     get:
       operationId: getMegaBillKeys
-      summary: Get all MegaBill keys
+      summary: Finout Get all MegaBill keys
       description: >-
         Retrieves all MegaBill keys. This endpoint is used to understand the
         different building blocks of Finout's MegaFilter, and the information
@@ -308,7 +308,7 @@ paths:
   /megabill/query-language/values/{costCenter}/{key}:
     get:
       operationId: getMegaBillKeyValues
-      summary: Get values for a MegaBill key
+      summary: Finout Get values for a MegaBill key
       description: >-
         Retrieves the available values for a specific MegaBill key within a cost
         center.
@@ -345,7 +345,7 @@ paths:
   /megabill/query-language/virtual-tags:
     get:
       operationId: getMegaBillVirtualTags
-      summary: Get MegaBill virtual tags
+      summary: Finout Get MegaBill virtual tags
       description: >-
         Retrieves virtual tags available in the MegaBill for use in filters
         and views.
@@ -368,7 +368,7 @@ paths:
   /cost-guard/scans:
     get:
       operationId: listCostGuardScans
-      summary: Get all CostGuard scans
+      summary: Finout Get all CostGuard scans
       description: Retrieves all CostGuard scan options available for the account.
       tags:
         - CostGuard
@@ -388,7 +388,7 @@ paths:
   /cost-guard/scans-recommendations:
     post:
       operationId: getCostGuardScanRecommendations
-      summary: Get scan recommendations
+      summary: Finout Get scan recommendations
       description: >-
         Retrieves all resources identified in a scan based on scanId, optional
         filters, and groupBy. You must first GET the scan you want to query
@@ -459,7 +459,7 @@ paths:
   /endpoints:
     get:
       operationId: listEndpoints
-      summary: Get all endpoints
+      summary: Finout Get all endpoints
       description: Gets a list of all notification endpoints for the account.
       tags:
         - Endpoints
@@ -478,7 +478,7 @@ paths:
           description: Too many requests.
     post:
       operationId: createEndpoint
-      summary: Create an endpoint
+      summary: Finout Create an endpoint
       description: >-
         Creates an email, Slack, or Microsoft Teams notification endpoint
         in Finout.
