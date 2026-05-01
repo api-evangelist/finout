@@ -16,7 +16,7 @@ Finout is an enterprise-grade FinOps solution that helps companies easily alloca
 ## Timestamps
 
 - **Created:** 2026-01-02 
-- **Modified:** 2026-03-14 
+- **Modified:** 2026-04-28 
 
 ## APIs
 
