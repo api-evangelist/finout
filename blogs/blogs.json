@@ -1,0 +1,13 @@
+{
+  "repo": "finout",
+  "feeds": [
+    {
+      "source": "https://www.finout.io/blog",
+      "feed_url": "https://www.finout.io/blog/rss.xml",
+      "saved": 10,
+      "title": "Cloud Cost Management Essentials Blog | Finout"
+    }
+  ],
+  "post_count": 10,
+  "fetched": "2026-05-03T23:27:55Z"
+}
