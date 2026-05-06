@@ -1,0 +1,575 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Finout API
+  description: The Finout API provides seamless access to powerful cloud cost management tools, enabling you to integrate,
+    analyze, and optimize your cloud expenses. It includes endpoints for cost insights, tagging, forecasting, and more, empowering
+    teams to automate workflows, track spending, and drive efficiency across cloud environments.
+  tags:
+  - Finout
+  - API
+  created: '2026-05-06'
+  modified: '2026-05-06'
+capability:
+  consumes:
+  - type: http
+    namespace: finout
+    baseUri: https://app.finout.io/v1
+    description: Finout API HTTP API.
+    authentication:
+      type: apikey
+      in: header
+      name: x-finout-client-id
+      value: '{{FINOUT_TOKEN}}'
+    resources:
+    - name: view
+      path: /view
+      operations:
+      - name: querycosts
+        method: POST
+        description: Finout Query costs for a view
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: virtual-tag
+      path: /virtual-tag
+      operations:
+      - name: listvirtualtags
+        method: GET
+        description: Finout Get all virtual tags
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createvirtualtag
+        method: POST
+        description: Finout Create a virtual tag
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updatevirtualtag
+        method: PUT
+        description: Finout Update a virtual tag
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: virtual-tag-id
+      path: /virtual-tag/{id}
+      operations:
+      - name: getvirtualtagbyid
+        method: GET
+        description: Finout Get a virtual tag by ID
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+          description: The unique identifier of the virtual tag.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: deletevirtualtag
+        method: DELETE
+        description: Finout Delete a virtual tag
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+          description: The unique identifier of the virtual tag to delete.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: virtual-tags-virtualtagid-metadata
+      path: /virtual-tags/{virtualTagId}/metadata
+      operations:
+      - name: getvirtualtagmetadata
+        method: GET
+        description: Finout Get virtual tag metadata
+        inputParameters:
+        - name: virtualTagId
+          in: path
+          type: string
+          required: true
+          description: The unique identifier of the virtual tag.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updatevirtualtagmetadata
+        method: PUT
+        description: Finout Update virtual tag metadata
+        inputParameters:
+        - name: virtualTagId
+          in: path
+          type: string
+          required: true
+          description: The unique identifier of the virtual tag.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: megabill-query-language-keys
+      path: /megabill/query-language/keys
+      operations:
+      - name: getmegabillkeys
+        method: GET
+        description: Finout Get all MegaBill keys
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: megabill-query-language-values-costcenter-key
+      path: /megabill/query-language/values/{costCenter}/{key}
+      operations:
+      - name: getmegabillkeyvalues
+        method: GET
+        description: Finout Get values for a MegaBill key
+        inputParameters:
+        - name: costCenter
+          in: path
+          type: string
+          required: true
+          description: The cost center to query (e.g., AWS, GCP, Azure).
+        - name: key
+          in: path
+          type: string
+          required: true
+          description: The MegaBill key to retrieve values for.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: megabill-query-language-virtual-tags
+      path: /megabill/query-language/virtual-tags
+      operations:
+      - name: getmegabillvirtualtags
+        method: GET
+        description: Finout Get MegaBill virtual tags
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: cost-guard-scans
+      path: /cost-guard/scans
+      operations:
+      - name: listcostguardscans
+        method: GET
+        description: Finout Get all CostGuard scans
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: cost-guard-scans-recommendations
+      path: /cost-guard/scans-recommendations
+      operations:
+      - name: getcostguardscanrecommendations
+        method: POST
+        description: Finout Get scan recommendations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: endpoints
+      path: /endpoints
+      operations:
+      - name: listendpoints
+        method: GET
+        description: Finout Get all endpoints
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createendpoint
+        method: POST
+        description: Finout Create an endpoint
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    port: 8080
+    namespace: finout-rest
+    description: REST adapter for Finout API.
+    resources:
+    - path: /view
+      name: querycosts
+      operations:
+      - method: POST
+        name: querycosts
+        description: Finout Query costs for a view
+        call: finout.querycosts
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /virtual-tag
+      name: listvirtualtags
+      operations:
+      - method: GET
+        name: listvirtualtags
+        description: Finout Get all virtual tags
+        call: finout.listvirtualtags
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /virtual-tag
+      name: createvirtualtag
+      operations:
+      - method: POST
+        name: createvirtualtag
+        description: Finout Create a virtual tag
+        call: finout.createvirtualtag
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /virtual-tag
+      name: updatevirtualtag
+      operations:
+      - method: PUT
+        name: updatevirtualtag
+        description: Finout Update a virtual tag
+        call: finout.updatevirtualtag
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /virtual-tag/{id}
+      name: getvirtualtagbyid
+      operations:
+      - method: GET
+        name: getvirtualtagbyid
+        description: Finout Get a virtual tag by ID
+        call: finout.getvirtualtagbyid
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /virtual-tag/{id}
+      name: deletevirtualtag
+      operations:
+      - method: DELETE
+        name: deletevirtualtag
+        description: Finout Delete a virtual tag
+        call: finout.deletevirtualtag
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /virtual-tags/{virtualTagId}/metadata
+      name: getvirtualtagmetadata
+      operations:
+      - method: GET
+        name: getvirtualtagmetadata
+        description: Finout Get virtual tag metadata
+        call: finout.getvirtualtagmetadata
+        with:
+          virtualTagId: rest.virtualTagId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /virtual-tags/{virtualTagId}/metadata
+      name: updatevirtualtagmetadata
+      operations:
+      - method: PUT
+        name: updatevirtualtagmetadata
+        description: Finout Update virtual tag metadata
+        call: finout.updatevirtualtagmetadata
+        with:
+          virtualTagId: rest.virtualTagId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /megabill/query-language/keys
+      name: getmegabillkeys
+      operations:
+      - method: GET
+        name: getmegabillkeys
+        description: Finout Get all MegaBill keys
+        call: finout.getmegabillkeys
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /megabill/query-language/values/{costCenter}/{key}
+      name: getmegabillkeyvalues
+      operations:
+      - method: GET
+        name: getmegabillkeyvalues
+        description: Finout Get values for a MegaBill key
+        call: finout.getmegabillkeyvalues
+        with:
+          costCenter: rest.costCenter
+          key: rest.key
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /megabill/query-language/virtual-tags
+      name: getmegabillvirtualtags
+      operations:
+      - method: GET
+        name: getmegabillvirtualtags
+        description: Finout Get MegaBill virtual tags
+        call: finout.getmegabillvirtualtags
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /cost-guard/scans
+      name: listcostguardscans
+      operations:
+      - method: GET
+        name: listcostguardscans
+        description: Finout Get all CostGuard scans
+        call: finout.listcostguardscans
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /cost-guard/scans-recommendations
+      name: getcostguardscanrecommendations
+      operations:
+      - method: POST
+        name: getcostguardscanrecommendations
+        description: Finout Get scan recommendations
+        call: finout.getcostguardscanrecommendations
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /endpoints
+      name: listendpoints
+      operations:
+      - method: GET
+        name: listendpoints
+        description: Finout Get all endpoints
+        call: finout.listendpoints
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /endpoints
+      name: createendpoint
+      operations:
+      - method: POST
+        name: createendpoint
+        description: Finout Create an endpoint
+        call: finout.createendpoint
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    port: 9090
+    namespace: finout-mcp
+    transport: http
+    description: MCP adapter for Finout API for AI agent use.
+    tools:
+    - name: querycosts
+      description: Finout Query costs for a view
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: finout.querycosts
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listvirtualtags
+      description: Finout Get all virtual tags
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: finout.listvirtualtags
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: createvirtualtag
+      description: Finout Create a virtual tag
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: finout.createvirtualtag
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: updatevirtualtag
+      description: Finout Update a virtual tag
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: finout.updatevirtualtag
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getvirtualtagbyid
+      description: Finout Get a virtual tag by ID
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: finout.getvirtualtagbyid
+      with:
+        id: tools.id
+      inputParameters:
+      - name: id
+        type: string
+        description: The unique identifier of the virtual tag.
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deletevirtualtag
+      description: Finout Delete a virtual tag
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: finout.deletevirtualtag
+      with:
+        id: tools.id
+      inputParameters:
+      - name: id
+        type: string
+        description: The unique identifier of the virtual tag to delete.
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getvirtualtagmetadata
+      description: Finout Get virtual tag metadata
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: finout.getvirtualtagmetadata
+      with:
+        virtualTagId: tools.virtualTagId
+      inputParameters:
+      - name: virtualTagId
+        type: string
+        description: The unique identifier of the virtual tag.
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: updatevirtualtagmetadata
+      description: Finout Update virtual tag metadata
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: finout.updatevirtualtagmetadata
+      with:
+        virtualTagId: tools.virtualTagId
+      inputParameters:
+      - name: virtualTagId
+        type: string
+        description: The unique identifier of the virtual tag.
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getmegabillkeys
+      description: Finout Get all MegaBill keys
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: finout.getmegabillkeys
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getmegabillkeyvalues
+      description: Finout Get values for a MegaBill key
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: finout.getmegabillkeyvalues
+      with:
+        costCenter: tools.costCenter
+        key: tools.key
+      inputParameters:
+      - name: costCenter
+        type: string
+        description: The cost center to query (e.g., AWS, GCP, Azure).
+        required: true
+      - name: key
+        type: string
+        description: The MegaBill key to retrieve values for.
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getmegabillvirtualtags
+      description: Finout Get MegaBill virtual tags
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: finout.getmegabillvirtualtags
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listcostguardscans
+      description: Finout Get all CostGuard scans
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: finout.listcostguardscans
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getcostguardscanrecommendations
+      description: Finout Get scan recommendations
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: finout.getcostguardscanrecommendations
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listendpoints
+      description: Finout Get all endpoints
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: finout.listendpoints
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: createendpoint
+      description: Finout Create an endpoint
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: finout.createendpoint
+      outputParameters:
+      - type: object
+        mapping: $.
+binds:
+- namespace: env
+  keys:
+    FINOUT_TOKEN: FINOUT_TOKEN
