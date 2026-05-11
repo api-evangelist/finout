@@ -51,6 +51,72 @@ description: >-
   infrastructure. We make costs easy to understand across any cloud
   infrastructure and scalefrom AI cost to Kubernetes. From Startups to
   enterprises, we turn cloud chaos into clarity.
+integrations:
+  - name: FinOut
+  - name: ic-Consolidate-integrations
+  - name: ic-optimize
+  - name: ic-showback
+  - name: ic-financial-plan
+  - name: Kubernetes-icon2
+  - name: usecases-dropdown-img
+  - name: Open Solution menu
+  - name: ai-powered-vtag-icon
+  - name: shared-cost-icon
+  - name: costguard-icon
+  - name: anomaly-icon
+  - name: finops-dashboard-icon
+  - name: aws-icon
+  - name: gcp-icon-1
+  - name: azure-icon
+  - name: oracle-icon
+  - name: openai-icon
+  - name: anthropic-icon
+  - name: Kubernetes-icon
+  - name: snowflake-icon
+  - name: Databricks-icon
+  - name: Slack-icon
+  - name: datadog-icon
+  - name: solution-dropdown-img
+  - name: Open Resources menu
+  - name: whitepaper-icon
+  - name: events-icon
+  - name: Webinar-icon
+  - name: eBook-icon
+  - name: Customer-stories
+  - name: tools-icon
+  - name: Resources_May26
+  - name: Open Company menu
+  - name: about_icon
+  - name: media-kit_icon
+  - name: careers_icon
+  - name: ContectUs
+  - name: product-news_icon
+  - name: company-news_icon
+  - name: Log in
+  - name: Clear Search
+  - name: Integrations-hero
+  - name: Integrations-hero-mbl
+  - name: AWS-int-icn
+  - name: GCP-int-icn
+  - name: Azure-int-icn
+  - name: oracle-int-icn
+  - name: alibaba-int-icn
+  - name: EKS-int-icn
+  - name: GKE-int-icn
+  - name: AKS-int-icn
+  - name: Snowflake-int-icn
+  - name: Databricks-int-icn
+  - name: mangoDB-int-icn
+  - name: Redis-int-icn
+  - name: datadog-int-icn
+  - name: Logz-io-int-icn
+  - name: Coralogix-int-icn
+  - name: Slack
+  - name: Linkedin
+  - name: Facebook
+  - name: Dribbble
+  - name: cloud_native_logo_2
+  - name: Linkedin Spacer image
 maintainers:
   - FN: Kin Lane
     email: info@apievangelist.com
