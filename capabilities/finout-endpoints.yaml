@@ -1,0 +1,107 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Finout API — Endpoints
+  description: 'Finout API — Endpoints. 2 operations. Lead operation: Finout Get all endpoints. Self-contained Naftiko capability
+    covering one Finout business surface.'
+  tags:
+  - Finout
+  - Endpoints
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    FINOUT_API_KEY: FINOUT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: finout-endpoints
+    baseUri: https://app.finout.io/v1
+    description: Finout API — Endpoints business capability. Self-contained, no shared references.
+    resources:
+    - name: endpoints
+      path: /endpoints
+      operations:
+      - name: listendpoints
+        method: GET
+        description: Finout Get all endpoints
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createendpoint
+        method: POST
+        description: Finout Create an endpoint
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: apikey
+      key: x-finout-client-id
+      value: '{{env.FINOUT_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: finout-endpoints-rest
+    port: 8080
+    description: REST adapter for Finout API — Endpoints. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/endpoints
+      name: endpoints
+      description: REST surface for endpoints.
+      operations:
+      - method: GET
+        name: listendpoints
+        description: Finout Get all endpoints
+        call: finout-endpoints.listendpoints
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createendpoint
+        description: Finout Create an endpoint
+        call: finout-endpoints.createendpoint
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: finout-endpoints-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Finout API — Endpoints. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: finout-get-all-endpoints
+      description: Finout Get all endpoints
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: finout-endpoints.listendpoints
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: finout-create-endpoint
+      description: Finout Create an endpoint
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: finout-endpoints.createendpoint
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

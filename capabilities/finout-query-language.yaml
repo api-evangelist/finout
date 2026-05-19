@@ -1,0 +1,153 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Finout API — Query Language
+  description: 'Finout API — Query Language. 3 operations. Lead operation: Finout Get all MegaBill keys. Self-contained Naftiko
+    capability covering one Finout business surface.'
+  tags:
+  - Finout
+  - Query Language
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    FINOUT_API_KEY: FINOUT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: finout-query-language
+    baseUri: https://app.finout.io/v1
+    description: Finout API — Query Language business capability. Self-contained, no shared references.
+    resources:
+    - name: megabill-query-language-keys
+      path: /megabill/query-language/keys
+      operations:
+      - name: getmegabillkeys
+        method: GET
+        description: Finout Get all MegaBill keys
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: megabill-query-language-values-costCenter-key
+      path: /megabill/query-language/values/{costCenter}/{key}
+      operations:
+      - name: getmegabillkeyvalues
+        method: GET
+        description: Finout Get values for a MegaBill key
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: costCenter
+          in: path
+          type: string
+          description: The cost center to query (e.g., AWS, GCP, Azure).
+          required: true
+        - name: key
+          in: path
+          type: string
+          description: The MegaBill key to retrieve values for.
+          required: true
+    - name: megabill-query-language-virtual-tags
+      path: /megabill/query-language/virtual-tags
+      operations:
+      - name: getmegabillvirtualtags
+        method: GET
+        description: Finout Get MegaBill virtual tags
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: apikey
+      key: x-finout-client-id
+      value: '{{env.FINOUT_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: finout-query-language-rest
+    port: 8080
+    description: REST adapter for Finout API — Query Language. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/megabill/query-language/keys
+      name: megabill-query-language-keys
+      description: REST surface for megabill-query-language-keys.
+      operations:
+      - method: GET
+        name: getmegabillkeys
+        description: Finout Get all MegaBill keys
+        call: finout-query-language.getmegabillkeys
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/megabill/query-language/values/{costcenter}/{key}
+      name: megabill-query-language-values-costcenter-key
+      description: REST surface for megabill-query-language-values-costCenter-key.
+      operations:
+      - method: GET
+        name: getmegabillkeyvalues
+        description: Finout Get values for a MegaBill key
+        call: finout-query-language.getmegabillkeyvalues
+        with:
+          costCenter: rest.costCenter
+          key: rest.key
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/megabill/query-language/virtual-tags
+      name: megabill-query-language-virtual-tags
+      description: REST surface for megabill-query-language-virtual-tags.
+      operations:
+      - method: GET
+        name: getmegabillvirtualtags
+        description: Finout Get MegaBill virtual tags
+        call: finout-query-language.getmegabillvirtualtags
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: finout-query-language-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Finout API — Query Language. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: finout-get-all-megabill-keys
+      description: Finout Get all MegaBill keys
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: finout-query-language.getmegabillkeys
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: finout-get-values-megabill-key
+      description: Finout Get values for a MegaBill key
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: finout-query-language.getmegabillkeyvalues
+      with:
+        costCenter: tools.costCenter
+        key: tools.key
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: finout-get-megabill-virtual-tags
+      description: Finout Get MegaBill virtual tags
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: finout-query-language.getmegabillvirtualtags
+      outputParameters:
+      - type: object
+        mapping: $.

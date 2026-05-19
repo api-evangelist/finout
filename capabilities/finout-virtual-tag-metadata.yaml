@@ -1,0 +1,124 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Finout API — Virtual Tag Metadata
+  description: 'Finout API — Virtual Tag Metadata. 2 operations. Lead operation: Finout Get virtual tag metadata. Self-contained
+    Naftiko capability covering one Finout business surface.'
+  tags:
+  - Finout
+  - Virtual Tag Metadata
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    FINOUT_API_KEY: FINOUT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: finout-virtual-tag-metadata
+    baseUri: https://app.finout.io/v1
+    description: Finout API — Virtual Tag Metadata business capability. Self-contained, no shared references.
+    resources:
+    - name: virtual-tags-virtualTagId-metadata
+      path: /virtual-tags/{virtualTagId}/metadata
+      operations:
+      - name: getvirtualtagmetadata
+        method: GET
+        description: Finout Get virtual tag metadata
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: virtualTagId
+          in: path
+          type: string
+          description: The unique identifier of the virtual tag.
+          required: true
+      - name: updatevirtualtagmetadata
+        method: PUT
+        description: Finout Update virtual tag metadata
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: virtualTagId
+          in: path
+          type: string
+          description: The unique identifier of the virtual tag.
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: apikey
+      key: x-finout-client-id
+      value: '{{env.FINOUT_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: finout-virtual-tag-metadata-rest
+    port: 8080
+    description: REST adapter for Finout API — Virtual Tag Metadata. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/virtual-tags/{virtualtagid}/metadata
+      name: virtual-tags-virtualtagid-metadata
+      description: REST surface for virtual-tags-virtualTagId-metadata.
+      operations:
+      - method: GET
+        name: getvirtualtagmetadata
+        description: Finout Get virtual tag metadata
+        call: finout-virtual-tag-metadata.getvirtualtagmetadata
+        with:
+          virtualTagId: rest.virtualTagId
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: updatevirtualtagmetadata
+        description: Finout Update virtual tag metadata
+        call: finout-virtual-tag-metadata.updatevirtualtagmetadata
+        with:
+          virtualTagId: rest.virtualTagId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: finout-virtual-tag-metadata-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Finout API — Virtual Tag Metadata. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: finout-get-virtual-tag-metadata
+      description: Finout Get virtual tag metadata
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: finout-virtual-tag-metadata.getvirtualtagmetadata
+      with:
+        virtualTagId: tools.virtualTagId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: finout-update-virtual-tag-metadata
+      description: Finout Update virtual tag metadata
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: finout-virtual-tag-metadata.updatevirtualtagmetadata
+      with:
+        virtualTagId: tools.virtualTagId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

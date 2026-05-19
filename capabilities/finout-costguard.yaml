@@ -1,0 +1,114 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Finout API — CostGuard
+  description: 'Finout API — CostGuard. 2 operations. Lead operation: Finout Get all CostGuard scans. Self-contained Naftiko
+    capability covering one Finout business surface.'
+  tags:
+  - Finout
+  - CostGuard
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    FINOUT_API_KEY: FINOUT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: finout-costguard
+    baseUri: https://app.finout.io/v1
+    description: Finout API — CostGuard business capability. Self-contained, no shared references.
+    resources:
+    - name: cost-guard-scans
+      path: /cost-guard/scans
+      operations:
+      - name: listcostguardscans
+        method: GET
+        description: Finout Get all CostGuard scans
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: cost-guard-scans-recommendations
+      path: /cost-guard/scans-recommendations
+      operations:
+      - name: getcostguardscanrecommendations
+        method: POST
+        description: Finout Get scan recommendations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: apikey
+      key: x-finout-client-id
+      value: '{{env.FINOUT_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: finout-costguard-rest
+    port: 8080
+    description: REST adapter for Finout API — CostGuard. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/cost-guard/scans
+      name: cost-guard-scans
+      description: REST surface for cost-guard-scans.
+      operations:
+      - method: GET
+        name: listcostguardscans
+        description: Finout Get all CostGuard scans
+        call: finout-costguard.listcostguardscans
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/cost-guard/scans-recommendations
+      name: cost-guard-scans-recommendations
+      description: REST surface for cost-guard-scans-recommendations.
+      operations:
+      - method: POST
+        name: getcostguardscanrecommendations
+        description: Finout Get scan recommendations
+        call: finout-costguard.getcostguardscanrecommendations
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: finout-costguard-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Finout API — CostGuard. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: finout-get-all-costguard-scans
+      description: Finout Get all CostGuard scans
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: finout-costguard.listcostguardscans
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: finout-get-scan-recommendations
+      description: Finout Get scan recommendations
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: finout-costguard.getcostguardscanrecommendations
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

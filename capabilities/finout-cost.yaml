@@ -1,0 +1,82 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Finout API — Cost
+  description: 'Finout API — Cost. 1 operations. Lead operation: Finout Query costs for a view. Self-contained Naftiko capability
+    covering one Finout business surface.'
+  tags:
+  - Finout
+  - Cost
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    FINOUT_API_KEY: FINOUT_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: finout-cost
+    baseUri: https://app.finout.io/v1
+    description: Finout API — Cost business capability. Self-contained, no shared references.
+    resources:
+    - name: view
+      path: /view
+      operations:
+      - name: querycosts
+        method: POST
+        description: Finout Query costs for a view
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: apikey
+      key: x-finout-client-id
+      value: '{{env.FINOUT_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: finout-cost-rest
+    port: 8080
+    description: REST adapter for Finout API — Cost. One Spectral-compliant resource per consumed operation, prefixed with
+      /v1.
+    resources:
+    - path: /v1/view
+      name: view
+      description: REST surface for view.
+      operations:
+      - method: POST
+        name: querycosts
+        description: Finout Query costs for a view
+        call: finout-cost.querycosts
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: finout-cost-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Finout API — Cost. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: finout-query-costs-view
+      description: Finout Query costs for a view
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: finout-cost.querycosts
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
