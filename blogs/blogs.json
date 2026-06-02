@@ -2,13 +2,20 @@
   "repo": "finout",
   "feeds": [
     {
-      "source": "https://www.finout.io/blog",
+      "source": "https://www.finout.io/blog/atom.xml",
       "feed_url": "https://www.finout.io/blog/atom.xml",
-      "title": "Cloud Cost Management Essentials Blog | Finout",
+      "title": "",
       "saved": 0,
-      "last_error": "http_404"
+      "method": "feed"
+    },
+    {
+      "source": "https://www.finout.io/blog",
+      "feed_url": "https://www.finout.io/blog/rss.xml",
+      "title": "",
+      "saved": 0,
+      "method": "discovered"
     }
   ],
-  "post_count": 19,
-  "fetched": "2026-05-17T20:20:35Z"
+  "post_count": 29,
+  "fetched": "2026-06-01T23:35:02Z"
 }
