@@ -1,0 +1,301 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Finout API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-finout-client-id",
+      "value": "{{x-finout-client-id}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Cost",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Finout Query costs for a view",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.finout.io/v1/view",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Query and analyze costs using user-defined Finout Views. You can query the costs for any date range of up to 90 days specified in UTC timestamps. You must either specify dates or delete them completely; the query will not work when blank dates are still present."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Virtual Tags",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Finout Get all virtual tags",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.finout.io/v1/virtual-tag"
+          },
+          "docs": "Retrieves all virtual tag configurations for the account."
+        },
+        {
+          "info": {
+            "name": "Finout Create a virtual tag",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.finout.io/v1/virtual-tag",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new virtual tag configuration."
+        },
+        {
+          "info": {
+            "name": "Finout Update a virtual tag",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.finout.io/v1/virtual-tag",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates an existing virtual tag configuration."
+        },
+        {
+          "info": {
+            "name": "Finout Get a virtual tag by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.finout.io/v1/virtual-tag/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the virtual tag."
+              }
+            ]
+          },
+          "docs": "Retrieves a specific virtual tag configuration by its unique identifier."
+        },
+        {
+          "info": {
+            "name": "Finout Delete a virtual tag",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.finout.io/v1/virtual-tag/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the virtual tag to delete."
+              }
+            ]
+          },
+          "docs": "Deletes a virtual tag configuration by its unique identifier."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Virtual Tag Metadata",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Finout Get virtual tag metadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.finout.io/v1/virtual-tags/:virtualTagId/metadata",
+            "params": [
+              {
+                "name": "virtualTagId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the virtual tag."
+              }
+            ]
+          },
+          "docs": "Retrieves metadata for a specific virtual tag. When grouping by virtual tag, if virtual tag values include endpoint metadata, they will automatically be populated and updated."
+        },
+        {
+          "info": {
+            "name": "Finout Update virtual tag metadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.finout.io/v1/virtual-tags/:virtualTagId/metadata",
+            "params": [
+              {
+                "name": "virtualTagId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the virtual tag."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates metadata for a specific virtual tag, including endpoint information for each virtual tag value."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Query Language",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Finout Get all MegaBill keys",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.finout.io/v1/megabill/query-language/keys"
+          },
+          "docs": "Retrieves all MegaBill keys. This endpoint is used to understand the different building blocks of Finout's MegaFilter, and the information needed to build Virtual Tags and views."
+        },
+        {
+          "info": {
+            "name": "Finout Get values for a MegaBill key",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.finout.io/v1/megabill/query-language/values/:costCenter/:key",
+            "params": [
+              {
+                "name": "costCenter",
+                "value": "",
+                "type": "path",
+                "description": "The cost center to query (e.g., AWS, GCP, Azure)."
+              },
+              {
+                "name": "key",
+                "value": "",
+                "type": "path",
+                "description": "The MegaBill key to retrieve values for."
+              }
+            ]
+          },
+          "docs": "Retrieves the available values for a specific MegaBill key within a cost center."
+        },
+        {
+          "info": {
+            "name": "Finout Get MegaBill virtual tags",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.finout.io/v1/megabill/query-language/virtual-tags"
+          },
+          "docs": "Retrieves virtual tags available in the MegaBill for use in filters and views."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "CostGuard",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Finout Get all CostGuard scans",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.finout.io/v1/cost-guard/scans"
+          },
+          "docs": "Retrieves all CostGuard scan options available for the account."
+        },
+        {
+          "info": {
+            "name": "Finout Get scan recommendations",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.finout.io/v1/cost-guard/scans-recommendations",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Retrieves all resources identified in a scan based on scanId, optional filters, and groupBy. You must first GET the scan you want to query and then add the scan ID to the body of the POST query."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Endpoints",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Finout Get all endpoints",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.finout.io/v1/endpoints"
+          },
+          "docs": "Gets a list of all notification endpoints for the account."
+        },
+        {
+          "info": {
+            "name": "Finout Create an endpoint",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.finout.io/v1/endpoints",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates an email, Slack, or Microsoft Teams notification endpoint in Finout."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
