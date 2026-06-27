@@ -168,5 +168,5 @@ common:
   - name: MCP Server
     url: https://www.finout.io/blog/introducing-finouts-mcp-integration
     type: MCPServer
-  - type: LLMsTxt
+  - type: LlmsText
     url: https://docs.finout.io/llms.txt
