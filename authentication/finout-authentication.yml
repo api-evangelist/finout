@@ -1,0 +1,24 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/finout-api-openapi.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: clientId
+  type: apiKey
+  in: header
+  parameter: x-finout-client-id
+  description: The Client ID generated from the Finout Admin Portal under API Tokens.
+  sources:
+  - openapi/finout-api-openapi.yml
+- name: secretKey
+  type: apiKey
+  in: header
+  parameter: x-finout-secret-key
+  description: The Secret Key generated from the Finout Admin Portal under API Tokens. This
+    value is only shown once at generation time.
+  sources:
+  - openapi/finout-api-openapi.yml

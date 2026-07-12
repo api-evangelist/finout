@@ -117,6 +117,12 @@ maintainers:
     email: info@apievangelist.com
 specificationVersion: '0.19'
 common:
+  - type: TrustCenter
+    url: security/finout-trust-center.yml
+  - type: DomainSecurity
+    url: security/finout-domain-security.yml
+  - type: Authentication
+    url: authentication/finout-authentication.yml
   - type: GitHubOrganization
     url: https://github.com/finout-io
   - type: LinkedIn
