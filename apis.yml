@@ -117,6 +117,8 @@ maintainers:
     email: info@apievangelist.com
 specificationVersion: '0.19'
 common:
+  - type: AgenticAccess
+    url: agentic-access/finout-agentic-access.yml
   - type: TrustCenter
     url: security/finout-trust-center.yml
   - type: DomainSecurity
