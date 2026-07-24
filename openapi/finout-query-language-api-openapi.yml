@@ -1,0 +1,114 @@
+openapi: 3.1.0
+info:
+  title: Finout Cost Query Language API
+  description: The Finout API provides seamless access to powerful cloud cost management tools, enabling you to integrate, analyze, and optimize your cloud expenses. It includes endpoints for cost insights, tagging, forecasting, and more, empowering teams to automate workflows, track spending, and drive efficiency across cloud environments.
+  version: 1.0.0
+  contact:
+    name: Finout
+    url: https://www.finout.io/
+  termsOfService: https://www.finout.io/
+servers:
+- url: https://app.finout.io/v1
+  description: Finout Production API
+security:
+- clientId: []
+  secretKey: []
+tags:
+- name: Query Language
+  description: Query MegaBill keys, values, and metadata for building filters
+paths:
+  /megabill/query-language/keys:
+    get:
+      operationId: getMegaBillKeys
+      summary: Finout Get all MegaBill keys
+      description: Retrieves all MegaBill keys. This endpoint is used to understand the different building blocks of Finout's MegaFilter, and the information needed to build Virtual Tags and views.
+      tags:
+      - Query Language
+      responses:
+        '200':
+          description: A list of MegaBill keys.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    key:
+                      type: string
+                    displayName:
+                      type: string
+                    costCenter:
+                      type: string
+        '401':
+          description: Unauthorized.
+        '429':
+          description: Too many requests.
+  /megabill/query-language/values/{costCenter}/{key}:
+    get:
+      operationId: getMegaBillKeyValues
+      summary: Finout Get values for a MegaBill key
+      description: Retrieves the available values for a specific MegaBill key within a cost center.
+      tags:
+      - Query Language
+      parameters:
+      - name: costCenter
+        in: path
+        required: true
+        description: The cost center to query (e.g., AWS, GCP, Azure).
+        schema:
+          type: string
+      - name: key
+        in: path
+        required: true
+        description: The MegaBill key to retrieve values for.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: A list of values for the specified key.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+        '401':
+          description: Unauthorized.
+        '404':
+          description: Key or cost center not found.
+        '429':
+          description: Too many requests.
+  /megabill/query-language/virtual-tags:
+    get:
+      operationId: getMegaBillVirtualTags
+      summary: Finout Get MegaBill virtual tags
+      description: Retrieves virtual tags available in the MegaBill for use in filters and views.
+      tags:
+      - Query Language
+      responses:
+        '200':
+          description: A list of virtual tags in MegaBill.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  additionalProperties: true
+        '401':
+          description: Unauthorized.
+        '429':
+          description: Too many requests.
+components:
+  securitySchemes:
+    clientId:
+      type: apiKey
+      in: header
+      name: x-finout-client-id
+      description: The Client ID generated from the Finout Admin Portal under API Tokens.
+    secretKey:
+      type: apiKey
+      in: header
+      name: x-finout-secret-key
+      description: The Secret Key generated from the Finout Admin Portal under API Tokens. This value is only shown once at generation time.

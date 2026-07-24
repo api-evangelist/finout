@@ -1,0 +1,237 @@
+openapi: 3.1.0
+info:
+  title: Finout Cost Virtual Tags API
+  description: The Finout API provides seamless access to powerful cloud cost management tools, enabling you to integrate, analyze, and optimize your cloud expenses. It includes endpoints for cost insights, tagging, forecasting, and more, empowering teams to automate workflows, track spending, and drive efficiency across cloud environments.
+  version: 1.0.0
+  contact:
+    name: Finout
+    url: https://www.finout.io/
+  termsOfService: https://www.finout.io/
+servers:
+- url: https://app.finout.io/v1
+  description: Finout Production API
+security:
+- clientId: []
+  secretKey: []
+tags:
+- name: Virtual Tags
+  description: Create, retrieve, update, and delete Virtual Tag configurations
+paths:
+  /virtual-tag:
+    get:
+      operationId: listVirtualTags
+      summary: Finout Get all virtual tags
+      description: Retrieves all virtual tag configurations for the account.
+      tags:
+      - Virtual Tags
+      responses:
+        '200':
+          description: A list of virtual tag configurations.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/VirtualTag'
+        '401':
+          description: Unauthorized.
+        '429':
+          description: Too many requests.
+    post:
+      operationId: createVirtualTag
+      summary: Finout Create a virtual tag
+      description: Creates a new virtual tag configuration.
+      tags:
+      - Virtual Tags
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VirtualTagInput'
+      responses:
+        '200':
+          description: Virtual tag created successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VirtualTag'
+        '400':
+          description: Bad request.
+        '401':
+          description: Unauthorized.
+        '429':
+          description: Too many requests.
+    put:
+      operationId: updateVirtualTag
+      summary: Finout Update a virtual tag
+      description: Updates an existing virtual tag configuration.
+      tags:
+      - Virtual Tags
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VirtualTag'
+      responses:
+        '200':
+          description: Virtual tag updated successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VirtualTag'
+        '400':
+          description: Bad request.
+        '401':
+          description: Unauthorized.
+        '404':
+          description: Virtual tag not found.
+        '429':
+          description: Too many requests.
+  /virtual-tag/{id}:
+    get:
+      operationId: getVirtualTagById
+      summary: Finout Get a virtual tag by ID
+      description: Retrieves a specific virtual tag configuration by its unique identifier.
+      tags:
+      - Virtual Tags
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: The unique identifier of the virtual tag.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: The requested virtual tag configuration.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VirtualTag'
+        '401':
+          description: Unauthorized.
+        '404':
+          description: Virtual tag not found.
+        '429':
+          description: Too many requests.
+    delete:
+      operationId: deleteVirtualTag
+      summary: Finout Delete a virtual tag
+      description: Deletes a virtual tag configuration by its unique identifier.
+      tags:
+      - Virtual Tags
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: The unique identifier of the virtual tag to delete.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Virtual tag deleted successfully.
+        '401':
+          description: Unauthorized.
+        '404':
+          description: Virtual tag not found.
+        '429':
+          description: Too many requests.
+components:
+  schemas:
+    VirtualTag:
+      type: object
+      description: A virtual tag configuration used for resource allocation and filtering.
+      properties:
+        id:
+          type: string
+          description: The unique identifier of the virtual tag.
+        accountId:
+          type: string
+          description: The unique identifier of the account associated with the virtual tag.
+        name:
+          type: string
+          description: The name of the virtual tag.
+        rules:
+          type: array
+          description: An array of rule objects that define the filtering criteria.
+          items:
+            $ref: '#/components/schemas/VirtualTagRule'
+    VirtualTagInput:
+      type: object
+      description: Input for creating a virtual tag.
+      required:
+      - name
+      - rules
+      properties:
+        name:
+          type: string
+          description: The name of the virtual tag.
+        rules:
+          type: array
+          description: An array of rule objects that define the filtering criteria.
+          items:
+            $ref: '#/components/schemas/VirtualTagRule'
+    FilterObject:
+      type: object
+      description: A filter object used to narrow query results. Supports logical AND/OR grouping and various operators for matching conditions.
+      properties:
+        costCenter:
+          type: string
+          description: The cost center to filter on (e.g., AWS, GCP, Azure).
+        key:
+          type: string
+          description: The MegaBill key to filter by.
+        displayName:
+          type: string
+          description: The display name for the filter field.
+        operator:
+          type: string
+          description: The filter operator.
+          enum:
+          - oneOf
+          - notOneOf
+          - is
+          - isNot
+          - contains
+          - notContains
+          - exists
+          - notExists
+        value:
+          description: The value or values to match against. Can be a string or array of strings depending on the operator.
+          oneOf:
+          - type: string
+          - type: array
+            items:
+              type: string
+        and:
+          type: array
+          description: Logical AND grouping of filter conditions.
+          items:
+            $ref: '#/components/schemas/FilterObject'
+        or:
+          type: array
+          description: Logical OR grouping of filter conditions.
+          items:
+            $ref: '#/components/schemas/FilterObject'
+    VirtualTagRule:
+      type: object
+      description: A rule within a virtual tag that defines filtering criteria for resource allocation.
+      properties:
+        name:
+          type: string
+          description: The name or value assigned when the rule matches.
+        filter:
+          $ref: '#/components/schemas/FilterObject'
+  securitySchemes:
+    clientId:
+      type: apiKey
+      in: header
+      name: x-finout-client-id
+      description: The Client ID generated from the Finout Admin Portal under API Tokens.
+    secretKey:
+      type: apiKey
+      in: header
+      name: x-finout-secret-key
+      description: The Secret Key generated from the Finout Admin Portal under API Tokens. This value is only shown once at generation time.

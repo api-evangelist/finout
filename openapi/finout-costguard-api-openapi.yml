@@ -1,0 +1,174 @@
+openapi: 3.1.0
+info:
+  title: Finout Cost CostGuard API
+  description: The Finout API provides seamless access to powerful cloud cost management tools, enabling you to integrate, analyze, and optimize your cloud expenses. It includes endpoints for cost insights, tagging, forecasting, and more, empowering teams to automate workflows, track spending, and drive efficiency across cloud environments.
+  version: 1.0.0
+  contact:
+    name: Finout
+    url: https://www.finout.io/
+  termsOfService: https://www.finout.io/
+servers:
+- url: https://app.finout.io/v1
+  description: Finout Production API
+security:
+- clientId: []
+  secretKey: []
+tags:
+- name: CostGuard
+  description: Retrieve CostGuard scans and recommendations
+paths:
+  /cost-guard/scans:
+    get:
+      operationId: listCostGuardScans
+      summary: Finout Get all CostGuard scans
+      description: Retrieves all CostGuard scan options available for the account.
+      tags:
+      - CostGuard
+      responses:
+        '200':
+          description: A list of CostGuard scan options.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CostGuardScan'
+        '401':
+          description: Unauthorized.
+        '429':
+          description: Too many requests.
+  /cost-guard/scans-recommendations:
+    post:
+      operationId: getCostGuardScanRecommendations
+      summary: Finout Get scan recommendations
+      description: Retrieves all resources identified in a scan based on scanId, optional filters, and groupBy. You must first GET the scan you want to query and then add the scan ID to the body of the POST query.
+      tags:
+      - CostGuard
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - scanId
+              properties:
+                scanId:
+                  type: string
+                  description: The ID of the CostGuard scan to retrieve recommendations for.
+                filter:
+                  $ref: '#/components/schemas/FilterObject'
+                groupBy:
+                  type: string
+                  description: Optional field to group results by.
+      responses:
+        '200':
+          description: Scan recommendations retrieved successfully.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  requestId:
+                    type: string
+                    description: The ID of this specific request.
+                  scanName:
+                    type: string
+                    description: The name of the scan.
+                  scanLastRunTime:
+                    type: string
+                    description: The last time the scan was run.
+                  scanTotalCost:
+                    type: number
+                    format: double
+                    description: The sum of resources cost identified by the scan during the analysis days.
+                  scanTotalWaste:
+                    type: number
+                    format: double
+                    description: Waste of the scan during the analysis days.
+                  scanYearlyPotentialSavings:
+                    type: number
+                    format: double
+                    description: Yearly potential savings for the scan based on the scan's total waste.
+                  resources:
+                    type: array
+                    items:
+                      type: object
+                      additionalProperties: true
+        '400':
+          description: Bad request.
+        '401':
+          description: Unauthorized.
+        '429':
+          description: Too many requests.
+components:
+  schemas:
+    FilterObject:
+      type: object
+      description: A filter object used to narrow query results. Supports logical AND/OR grouping and various operators for matching conditions.
+      properties:
+        costCenter:
+          type: string
+          description: The cost center to filter on (e.g., AWS, GCP, Azure).
+        key:
+          type: string
+          description: The MegaBill key to filter by.
+        displayName:
+          type: string
+          description: The display name for the filter field.
+        operator:
+          type: string
+          description: The filter operator.
+          enum:
+          - oneOf
+          - notOneOf
+          - is
+          - isNot
+          - contains
+          - notContains
+          - exists
+          - notExists
+        value:
+          description: The value or values to match against. Can be a string or array of strings depending on the operator.
+          oneOf:
+          - type: string
+          - type: array
+            items:
+              type: string
+        and:
+          type: array
+          description: Logical AND grouping of filter conditions.
+          items:
+            $ref: '#/components/schemas/FilterObject'
+        or:
+          type: array
+          description: Logical OR grouping of filter conditions.
+          items:
+            $ref: '#/components/schemas/FilterObject'
+    CostGuardScan:
+      type: object
+      description: A CostGuard scan configuration.
+      properties:
+        id:
+          type: string
+          description: The unique identifier of the scan.
+        name:
+          type: string
+          description: The name of the scan.
+        lastRunTime:
+          type: string
+          description: The last time the scan was executed.
+        status:
+          type: string
+          description: The current status of the scan.
+  securitySchemes:
+    clientId:
+      type: apiKey
+      in: header
+      name: x-finout-client-id
+      description: The Client ID generated from the Finout Admin Portal under API Tokens.
+    secretKey:
+      type: apiKey
+      in: header
+      name: x-finout-secret-key
+      description: The Secret Key generated from the Finout Admin Portal under API Tokens. This value is only shown once at generation time.

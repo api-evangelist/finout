@@ -1,0 +1,90 @@
+openapi: 3.1.0
+info:
+  title: Finout Cost Virtual Tag Metadata API
+  description: The Finout API provides seamless access to powerful cloud cost management tools, enabling you to integrate, analyze, and optimize your cloud expenses. It includes endpoints for cost insights, tagging, forecasting, and more, empowering teams to automate workflows, track spending, and drive efficiency across cloud environments.
+  version: 1.0.0
+  contact:
+    name: Finout
+    url: https://www.finout.io/
+  termsOfService: https://www.finout.io/
+servers:
+- url: https://app.finout.io/v1
+  description: Finout Production API
+security:
+- clientId: []
+  secretKey: []
+tags:
+- name: Virtual Tag Metadata
+  description: Manage metadata for virtual tags
+paths:
+  /virtual-tags/{virtualTagId}/metadata:
+    get:
+      operationId: getVirtualTagMetadata
+      summary: Finout Get virtual tag metadata
+      description: Retrieves metadata for a specific virtual tag. When grouping by virtual tag, if virtual tag values include endpoint metadata, they will automatically be populated and updated.
+      tags:
+      - Virtual Tag Metadata
+      parameters:
+      - name: virtualTagId
+        in: path
+        required: true
+        description: The unique identifier of the virtual tag.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Virtual tag metadata retrieved successfully.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+        '401':
+          description: Unauthorized.
+        '404':
+          description: Virtual tag not found.
+        '429':
+          description: Too many requests.
+    put:
+      operationId: updateVirtualTagMetadata
+      summary: Finout Update virtual tag metadata
+      description: Updates metadata for a specific virtual tag, including endpoint information for each virtual tag value.
+      tags:
+      - Virtual Tag Metadata
+      parameters:
+      - name: virtualTagId
+        in: path
+        required: true
+        description: The unique identifier of the virtual tag.
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: true
+      responses:
+        '200':
+          description: Virtual tag metadata updated successfully.
+        '400':
+          description: Bad request.
+        '401':
+          description: Unauthorized.
+        '404':
+          description: Virtual tag not found.
+        '429':
+          description: Too many requests.
+components:
+  securitySchemes:
+    clientId:
+      type: apiKey
+      in: header
+      name: x-finout-client-id
+      description: The Client ID generated from the Finout Admin Portal under API Tokens.
+    secretKey:
+      type: apiKey
+      in: header
+      name: x-finout-secret-key
+      description: The Secret Key generated from the Finout Admin Portal under API Tokens. This value is only shown once at generation time.
