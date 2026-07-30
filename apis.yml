@@ -1,43 +1,170 @@
 aid: finout
 url: https://raw.githubusercontent.com/api-evangelist/finout/refs/heads/main/apis.yml
 apis:
-  - aid: finout:finout
-    name: Finout
-    tags:
-      - Budgets
-      - Costs
-      - FinOps
-    humanURL: https://www.finout.io/
-    baseURL: https://app.finout.io/v1
-    properties:
-      - url: https://docs.finout.io/api/finout-api
-        type: Documentation
-      - url: openapi/finout-api-openapi.yml
-        type: OpenAPI
-      - url: json-schema/virtual-tag.json
-        type: JSONSchema
-      - url: json-schema/cost-query.json
-        type: JSONSchema
-      - url: json-schema/cost-guard-scan.json
-        type: JSONSchema
-      - url: json-schema/endpoint.json
-        type: JSONSchema
-      - url: json-schema/scan-recommendation.json
-        type: JSONSchema
-      - url: json-ld/finout-context.jsonld
-        type: JSONLD
-    description: >-
-      Finout is a FinOps platform that gives companies end-to-end visibility and control over cloud and SaaS spend. It
-      unifies costs from multiple providers into a single, normalized view, then enriches and allocates that spend to
-      teams, services, environments, and customers—even when native tagging is incomplete—so organizations can run
-      accurate showback/chargeback and track unit economics like cost per feature or per customer.
+- aid: finout:finout-cost-api
+  name: Finout Cost API
+  description: Query and analyze costs using Finout Views
+  humanURL: https://www.finout.io/
+  baseURL: https://app.finout.io/v1
+  tags:
+  - Cost
+  properties:
+  - type: OpenAPI
+    url: openapi/finout-cost-api-openapi.yml
+  - type: Documentation
+    url: https://docs.finout.io/api/finout-api
+  - type: JSONSchema
+    url: json-schema/virtual-tag.json
+  - type: JSONSchema
+    url: json-schema/cost-query.json
+  - type: JSONSchema
+    url: json-schema/cost-guard-scan.json
+  - type: JSONSchema
+    url: json-schema/endpoint.json
+  - type: JSONSchema
+    url: json-schema/scan-recommendation.json
+  - type: JSONLD
+    url: json-ld/finout-context.jsonld
+- aid: finout:finout-costguard-api
+  name: Finout CostGuard API
+  description: Retrieve CostGuard scans and recommendations
+  humanURL: https://www.finout.io/
+  baseURL: https://app.finout.io/v1
+  tags:
+  - CostGuard
+  properties:
+  - type: OpenAPI
+    url: openapi/finout-costguard-api-openapi.yml
+  - type: Documentation
+    url: https://docs.finout.io/api/finout-api
+  - type: JSONSchema
+    url: json-schema/virtual-tag.json
+  - type: JSONSchema
+    url: json-schema/cost-query.json
+  - type: JSONSchema
+    url: json-schema/cost-guard-scan.json
+  - type: JSONSchema
+    url: json-schema/endpoint.json
+  - type: JSONSchema
+    url: json-schema/scan-recommendation.json
+  - type: JSONLD
+    url: json-ld/finout-context.jsonld
+- aid: finout:finout-endpoints-api
+  name: Finout Endpoints API
+  description: Query and create notification endpoints
+  humanURL: https://www.finout.io/
+  baseURL: https://app.finout.io/v1
+  tags:
+  - Endpoints
+  properties:
+  - type: OpenAPI
+    url: openapi/finout-endpoints-api-openapi.yml
+  - type: Documentation
+    url: https://docs.finout.io/api/finout-api
+  - type: JSONSchema
+    url: json-schema/virtual-tag.json
+  - type: JSONSchema
+    url: json-schema/cost-query.json
+  - type: JSONSchema
+    url: json-schema/cost-guard-scan.json
+  - type: JSONSchema
+    url: json-schema/endpoint.json
+  - type: JSONSchema
+    url: json-schema/scan-recommendation.json
+  - type: JSONLD
+    url: json-ld/finout-context.jsonld
+- aid: finout:finout-query-language-api
+  name: Finout Query Language API
+  description: Query MegaBill keys, values, and metadata for building filters
+  humanURL: https://www.finout.io/
+  baseURL: https://app.finout.io/v1
+  tags:
+  - Query Language
+  properties:
+  - type: OpenAPI
+    url: openapi/finout-query-language-api-openapi.yml
+  - type: Documentation
+    url: https://docs.finout.io/api/finout-api
+  - type: JSONSchema
+    url: json-schema/virtual-tag.json
+  - type: JSONSchema
+    url: json-schema/cost-query.json
+  - type: JSONSchema
+    url: json-schema/cost-guard-scan.json
+  - type: JSONSchema
+    url: json-schema/endpoint.json
+  - type: JSONSchema
+    url: json-schema/scan-recommendation.json
+  - type: JSONLD
+    url: json-ld/finout-context.jsonld
+- aid: finout:finout-virtual-tag-metadata-api
+  name: Finout Virtual Tag Metadata API
+  description: Manage metadata for virtual tags
+  humanURL: https://www.finout.io/
+  baseURL: https://app.finout.io/v1
+  tags:
+  - Virtual Tag Metadata
+  properties:
+  - type: OpenAPI
+    url: openapi/finout-virtual-tag-metadata-api-openapi.yml
+  - type: Documentation
+    url: https://docs.finout.io/api/finout-api
+  - type: JSONSchema
+    url: json-schema/virtual-tag.json
+  - type: JSONSchema
+    url: json-schema/cost-query.json
+  - type: JSONSchema
+    url: json-schema/cost-guard-scan.json
+  - type: JSONSchema
+    url: json-schema/endpoint.json
+  - type: JSONSchema
+    url: json-schema/scan-recommendation.json
+  - type: JSONLD
+    url: json-ld/finout-context.jsonld
+- aid: finout:finout-virtual-tags-api
+  name: Finout Virtual Tags API
+  description: Create, retrieve, update, and delete Virtual Tag configurations
+  humanURL: https://www.finout.io/
+  baseURL: https://app.finout.io/v1
+  tags:
+  - Virtual Tags
+  properties:
+  - type: OpenAPI
+    url: openapi/finout-virtual-tags-api-openapi.yml
+  - type: Documentation
+    url: https://docs.finout.io/api/finout-api
+  - type: JSONSchema
+    url: json-schema/virtual-tag.json
+  - type: JSONSchema
+    url: json-schema/cost-query.json
+  - type: JSONSchema
+    url: json-schema/cost-guard-scan.json
+  - type: JSONSchema
+    url: json-schema/endpoint.json
+  - type: JSONSchema
+    url: json-schema/scan-recommendation.json
+  - type: JSONLD
+    url: json-ld/finout-context.jsonld
 name: Finout
 tags:
   - Budgets
   - Costs
   - FinOps
 kind: contract
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/finout.png
 access: 3rd-Party
 created: '2026-01-02'
 modified: '2026-05-19'
@@ -117,6 +244,8 @@ maintainers:
     email: info@apievangelist.com
 specificationVersion: '0.19'
 common:
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/finout/overview
   - type: AgenticAccess
     url: agentic-access/finout-agentic-access.yml
   - type: TrustCenter
