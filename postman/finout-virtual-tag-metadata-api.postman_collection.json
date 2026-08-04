@@ -1,0 +1,598 @@
+{
+  "info": {
+    "_postman_id": "aa9f78e4-86ae-40bf-a8ce-e1213f0c03c4",
+    "name": "Finout Cost Virtual Tag Metadata API",
+    "description": "The Finout API provides seamless access to powerful cloud cost management tools, enabling you to integrate, analyze, and optimize your cloud expenses. It includes endpoints for cost insights, tagging, forecasting, and more, empowering teams to automate workflows, track spending, and drive efficiency across cloud environments.\n\nContact Support:\n Name: Finout",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:39:24.000Z",
+    "updatedAt": "2026-07-28T01:39:24.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-aa9f78e4-86ae-40bf-a8ce-e1213f0c03c4"
+  },
+  "item": [
+    {
+      "name": "virtual-tags",
+      "item": [
+        {
+          "name": "{virtualTagId}",
+          "item": [
+            {
+              "name": "metadata",
+              "item": [
+                {
+                  "name": "Finout Get virtual tag metadata",
+                  "id": "3f836360-d77f-4a85-aa7b-dc7cd1a9d5fb",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/virtual-tags/:virtualTagId/metadata",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "virtual-tags",
+                        ":virtualTagId",
+                        "metadata"
+                      ],
+                      "variable": [
+                        {
+                          "id": "04010368-ffd2-4e28-a248-866405479bc2",
+                          "key": "virtualTagId",
+                          "value": "<string>",
+                          "description": "(Required) The unique identifier of the virtual tag."
+                        }
+                      ]
+                    },
+                    "description": "Retrieves metadata for a specific virtual tag. When grouping by virtual tag, if virtual tag values include endpoint metadata, they will automatically be populated and updated."
+                  },
+                  "response": [
+                    {
+                      "id": "02552edb-c997-48b0-aaaf-16ed14b9ddf7",
+                      "name": "Virtual tag metadata retrieved successfully.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-finout-client-id",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/virtual-tags/:virtualTagId/metadata",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "virtual-tags",
+                            ":virtualTagId",
+                            "metadata"
+                          ],
+                          "variable": [
+                            {
+                              "key": "virtualTagId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"laborum47\": 59795716,\n  \"nisid\": false\n}",
+                      "createdAt": "2026-07-28T01:39:24.000Z",
+                      "updatedAt": "2026-07-28T01:39:24.000Z",
+                      "uid": "35240-02552edb-c997-48b0-aaaf-16ed14b9ddf7"
+                    },
+                    {
+                      "id": "415a5f0f-ae38-4d92-af26-ebedf149cc51",
+                      "name": "Unauthorized.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-finout-client-id",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/virtual-tags/:virtualTagId/metadata",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "virtual-tags",
+                            ":virtualTagId",
+                            "metadata"
+                          ],
+                          "variable": [
+                            {
+                              "key": "virtualTagId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:39:24.000Z",
+                      "updatedAt": "2026-07-28T01:39:24.000Z",
+                      "uid": "35240-415a5f0f-ae38-4d92-af26-ebedf149cc51"
+                    },
+                    {
+                      "id": "4d29c9fd-3792-4409-8d76-c715fc870573",
+                      "name": "Virtual tag not found.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-finout-client-id",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/virtual-tags/:virtualTagId/metadata",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "virtual-tags",
+                            ":virtualTagId",
+                            "metadata"
+                          ],
+                          "variable": [
+                            {
+                              "key": "virtualTagId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:39:24.000Z",
+                      "updatedAt": "2026-07-28T01:39:24.000Z",
+                      "uid": "35240-4d29c9fd-3792-4409-8d76-c715fc870573"
+                    },
+                    {
+                      "id": "4d84e258-37a4-44fa-a7aa-4464fa3c0273",
+                      "name": "Too many requests.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-finout-client-id",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/virtual-tags/:virtualTagId/metadata",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "virtual-tags",
+                            ":virtualTagId",
+                            "metadata"
+                          ],
+                          "variable": [
+                            {
+                              "key": "virtualTagId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Too Many Requests",
+                      "code": 429,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:39:24.000Z",
+                      "updatedAt": "2026-07-28T01:39:24.000Z",
+                      "uid": "35240-4d84e258-37a4-44fa-a7aa-4464fa3c0273"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:39:24.000Z",
+                  "updatedAt": "2026-07-28T01:39:24.000Z",
+                  "uid": "35240-3f836360-d77f-4a85-aa7b-dc7cd1a9d5fb"
+                },
+                {
+                  "name": "Finout Update virtual tag metadata",
+                  "id": "247f82e2-524a-4889-9880-f0754ea18fa3",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"laborum47\": 59795716,\n  \"nisid\": false\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/virtual-tags/:virtualTagId/metadata",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "virtual-tags",
+                        ":virtualTagId",
+                        "metadata"
+                      ],
+                      "variable": [
+                        {
+                          "id": "c38985c7-ef56-4e8d-b2e3-5f1dca7432fc",
+                          "key": "virtualTagId",
+                          "value": "<string>",
+                          "description": "(Required) The unique identifier of the virtual tag."
+                        }
+                      ]
+                    },
+                    "description": "Updates metadata for a specific virtual tag, including endpoint information for each virtual tag value."
+                  },
+                  "response": [
+                    {
+                      "id": "d25b35cc-7913-462e-8519-b81725161271",
+                      "name": "Virtual tag metadata updated successfully.",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-finout-client-id",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"laborum47\": 59795716,\n  \"nisid\": false\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/virtual-tags/:virtualTagId/metadata",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "virtual-tags",
+                            ":virtualTagId",
+                            "metadata"
+                          ],
+                          "variable": [
+                            {
+                              "key": "virtualTagId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:39:24.000Z",
+                      "updatedAt": "2026-07-28T01:39:24.000Z",
+                      "uid": "35240-d25b35cc-7913-462e-8519-b81725161271"
+                    },
+                    {
+                      "id": "c62858d0-3834-4e01-a6fb-637bc14fbfe6",
+                      "name": "Bad request.",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-finout-client-id",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"laborum47\": 59795716,\n  \"nisid\": false\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/virtual-tags/:virtualTagId/metadata",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "virtual-tags",
+                            ":virtualTagId",
+                            "metadata"
+                          ],
+                          "variable": [
+                            {
+                              "key": "virtualTagId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:39:24.000Z",
+                      "updatedAt": "2026-07-28T01:39:24.000Z",
+                      "uid": "35240-c62858d0-3834-4e01-a6fb-637bc14fbfe6"
+                    },
+                    {
+                      "id": "0c9d8525-2ea4-4429-823a-2835ecdd0e81",
+                      "name": "Unauthorized.",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-finout-client-id",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"laborum47\": 59795716,\n  \"nisid\": false\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/virtual-tags/:virtualTagId/metadata",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "virtual-tags",
+                            ":virtualTagId",
+                            "metadata"
+                          ],
+                          "variable": [
+                            {
+                              "key": "virtualTagId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:39:24.000Z",
+                      "updatedAt": "2026-07-28T01:39:24.000Z",
+                      "uid": "35240-0c9d8525-2ea4-4429-823a-2835ecdd0e81"
+                    },
+                    {
+                      "id": "05b22727-e7f4-4004-9b48-88466551fdc1",
+                      "name": "Virtual tag not found.",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-finout-client-id",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"laborum47\": 59795716,\n  \"nisid\": false\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/virtual-tags/:virtualTagId/metadata",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "virtual-tags",
+                            ":virtualTagId",
+                            "metadata"
+                          ],
+                          "variable": [
+                            {
+                              "key": "virtualTagId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:39:24.000Z",
+                      "updatedAt": "2026-07-28T01:39:24.000Z",
+                      "uid": "35240-05b22727-e7f4-4004-9b48-88466551fdc1"
+                    },
+                    {
+                      "id": "bd249a2d-5161-4460-b9ea-4efe09f2dace",
+                      "name": "Too many requests.",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-finout-client-id",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"laborum47\": 59795716,\n  \"nisid\": false\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/virtual-tags/:virtualTagId/metadata",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "virtual-tags",
+                            ":virtualTagId",
+                            "metadata"
+                          ],
+                          "variable": [
+                            {
+                              "key": "virtualTagId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Too Many Requests",
+                      "code": 429,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:39:24.000Z",
+                      "updatedAt": "2026-07-28T01:39:24.000Z",
+                      "uid": "35240-bd249a2d-5161-4460-b9ea-4efe09f2dace"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:39:24.000Z",
+                  "updatedAt": "2026-07-28T01:39:24.000Z",
+                  "uid": "35240-247f82e2-524a-4889-9880-f0754ea18fa3"
+                }
+              ],
+              "id": "543a56c7-090f-4c07-aa1a-f7e235174b28",
+              "createdAt": "2026-07-28T01:39:24.000Z",
+              "updatedAt": "2026-07-28T01:39:24.000Z",
+              "uid": "35240-543a56c7-090f-4c07-aa1a-f7e235174b28"
+            }
+          ],
+          "id": "7739310c-87a7-4724-a6bd-223adc8bcd63",
+          "createdAt": "2026-07-28T01:39:24.000Z",
+          "updatedAt": "2026-07-28T01:39:24.000Z",
+          "uid": "35240-7739310c-87a7-4724-a6bd-223adc8bcd63"
+        }
+      ],
+      "id": "e70ca289-575f-4887-b4ef-f790305d64c4",
+      "createdAt": "2026-07-28T01:39:24.000Z",
+      "updatedAt": "2026-07-28T01:39:24.000Z",
+      "uid": "35240-e70ca289-575f-4887-b4ef-f790305d64c4"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-finout-client-id",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://app.finout.io/v1"
+    }
+  ]
+}

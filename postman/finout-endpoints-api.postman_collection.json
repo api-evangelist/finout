@@ -1,0 +1,430 @@
+{
+  "info": {
+    "_postman_id": "c3820390-b23e-4a5a-9f3f-f2f194179c21",
+    "name": "Finout Cost Endpoints API",
+    "description": "The Finout API provides seamless access to powerful cloud cost management tools, enabling you to integrate, analyze, and optimize your cloud expenses. It includes endpoints for cost insights, tagging, forecasting, and more, empowering teams to automate workflows, track spending, and drive efficiency across cloud environments.\n\nContact Support:\n Name: Finout",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:39:22.000Z",
+    "updatedAt": "2026-07-28T01:39:22.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-c3820390-b23e-4a5a-9f3f-f2f194179c21"
+  },
+  "item": [
+    {
+      "name": "endpoints",
+      "item": [
+        {
+          "name": "Finout Get all endpoints",
+          "id": "05ce02ff-4259-4321-9140-3e7d4cd46616",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/endpoints",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "endpoints"
+              ]
+            },
+            "description": "Gets a list of all notification endpoints for the account."
+          },
+          "response": [
+            {
+              "id": "e79e739d-2f55-4bfe-8812-40fbac03c987",
+              "name": "A list of endpoints.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "x-finout-client-id",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/endpoints",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "endpoints"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n  {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"type\": \"email\",\n    \"configuration\": {\n      \"to\": \"<string>\"\n    }\n  },\n  {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"type\": \"slack\",\n    \"configuration\": {\n      \"to\": \"<string>\"\n    }\n  }\n]",
+              "createdAt": "2026-07-28T01:39:23.000Z",
+              "updatedAt": "2026-07-28T01:39:23.000Z",
+              "uid": "35240-e79e739d-2f55-4bfe-8812-40fbac03c987"
+            },
+            {
+              "id": "1561d9ba-90d9-4d94-823e-0c41b5eae76d",
+              "name": "Unauthorized.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "x-finout-client-id",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/endpoints",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "endpoints"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T01:39:23.000Z",
+              "updatedAt": "2026-07-28T01:39:23.000Z",
+              "uid": "35240-1561d9ba-90d9-4d94-823e-0c41b5eae76d"
+            },
+            {
+              "id": "2cd51a63-2b34-4832-b624-caf25ae80971",
+              "name": "Too many requests.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "x-finout-client-id",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/endpoints",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "endpoints"
+                  ]
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T01:39:23.000Z",
+              "updatedAt": "2026-07-28T01:39:23.000Z",
+              "uid": "35240-2cd51a63-2b34-4832-b624-caf25ae80971"
+            }
+          ],
+          "createdAt": "2026-07-28T01:39:23.000Z",
+          "updatedAt": "2026-07-28T01:39:23.000Z",
+          "uid": "35240-05ce02ff-4259-4321-9140-3e7d4cd46616"
+        },
+        {
+          "name": "Finout Create an endpoint",
+          "id": "9f539387-66de-41fa-bd55-e126ef3972a6",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"type\": \"slack\",\n  \"configuration\": {\n    \"to\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/endpoints",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "endpoints"
+              ]
+            },
+            "description": "Creates an email, Slack, or Microsoft Teams notification endpoint in Finout."
+          },
+          "response": [
+            {
+              "id": "f76f0cd3-48f9-44ca-ad2f-f6f9b9d0bfd9",
+              "name": "Endpoint created successfully.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "x-finout-client-id",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"type\": \"slack\",\n  \"configuration\": {\n    \"to\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/endpoints",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "endpoints"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"type\": \"teams\",\n  \"configuration\": {\n    \"to\": \"<string>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:39:23.000Z",
+              "updatedAt": "2026-07-28T01:39:23.000Z",
+              "uid": "35240-f76f0cd3-48f9-44ca-ad2f-f6f9b9d0bfd9"
+            },
+            {
+              "id": "552c8ae4-9e7b-437c-be60-93bfbf517984",
+              "name": "Bad request.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "x-finout-client-id",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"type\": \"slack\",\n  \"configuration\": {\n    \"to\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/endpoints",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "endpoints"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T01:39:23.000Z",
+              "updatedAt": "2026-07-28T01:39:23.000Z",
+              "uid": "35240-552c8ae4-9e7b-437c-be60-93bfbf517984"
+            },
+            {
+              "id": "38e43813-efa8-4bbe-aa78-e43bcf0125aa",
+              "name": "Unauthorized.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "x-finout-client-id",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"type\": \"slack\",\n  \"configuration\": {\n    \"to\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/endpoints",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "endpoints"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T01:39:23.000Z",
+              "updatedAt": "2026-07-28T01:39:23.000Z",
+              "uid": "35240-38e43813-efa8-4bbe-aa78-e43bcf0125aa"
+            },
+            {
+              "id": "0b8735a7-7390-4f5e-9364-4afe73ae1a0f",
+              "name": "Too many requests.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "x-finout-client-id",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"type\": \"slack\",\n  \"configuration\": {\n    \"to\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/endpoints",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "endpoints"
+                  ]
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T01:39:23.000Z",
+              "updatedAt": "2026-07-28T01:39:23.000Z",
+              "uid": "35240-0b8735a7-7390-4f5e-9364-4afe73ae1a0f"
+            }
+          ],
+          "createdAt": "2026-07-28T01:39:23.000Z",
+          "updatedAt": "2026-07-28T01:39:23.000Z",
+          "uid": "35240-9f539387-66de-41fa-bd55-e126ef3972a6"
+        }
+      ],
+      "id": "26775d12-c5d3-4347-a8ad-b9574b6965df",
+      "createdAt": "2026-07-28T01:39:23.000Z",
+      "updatedAt": "2026-07-28T01:39:23.000Z",
+      "uid": "35240-26775d12-c5d3-4347-a8ad-b9574b6965df"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-finout-client-id",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://app.finout.io/v1"
+    }
+  ]
+}

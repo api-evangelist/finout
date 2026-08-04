@@ -1,0 +1,635 @@
+{
+  "info": {
+    "_postman_id": "e4aa2cd3-f426-4f03-97f4-53c4c2d7b2a6",
+    "name": "Finout Cost Query Language API",
+    "description": "The Finout API provides seamless access to powerful cloud cost management tools, enabling you to integrate, analyze, and optimize your cloud expenses. It includes endpoints for cost insights, tagging, forecasting, and more, empowering teams to automate workflows, track spending, and drive efficiency across cloud environments.\n\nContact Support:\n Name: Finout",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:39:23.000Z",
+    "updatedAt": "2026-07-28T01:39:23.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-e4aa2cd3-f426-4f03-97f4-53c4c2d7b2a6"
+  },
+  "item": [
+    {
+      "name": "megabill",
+      "item": [
+        {
+          "name": "query-language",
+          "item": [
+            {
+              "name": "keys",
+              "item": [
+                {
+                  "name": "Finout Get all MegaBill keys",
+                  "id": "7215139f-f6e6-48a0-a702-4f269a09c191",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/megabill/query-language/keys",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "megabill",
+                        "query-language",
+                        "keys"
+                      ]
+                    },
+                    "description": "Retrieves all MegaBill keys. This endpoint is used to understand the different building blocks of Finout's MegaFilter, and the information needed to build Virtual Tags and views."
+                  },
+                  "response": [
+                    {
+                      "id": "67b9a2cb-79ba-46d0-aafd-cfd0d208b859",
+                      "name": "A list of MegaBill keys.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-finout-client-id",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/megabill/query-language/keys",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "megabill",
+                            "query-language",
+                            "keys"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"key\": \"<string>\",\n    \"displayName\": \"<string>\",\n    \"costCenter\": \"<string>\"\n  },\n  {\n    \"key\": \"<string>\",\n    \"displayName\": \"<string>\",\n    \"costCenter\": \"<string>\"\n  }\n]",
+                      "createdAt": "2026-07-28T01:39:24.000Z",
+                      "updatedAt": "2026-07-28T01:39:24.000Z",
+                      "uid": "35240-67b9a2cb-79ba-46d0-aafd-cfd0d208b859"
+                    },
+                    {
+                      "id": "b6bba6c7-c75f-46e0-a7df-5a07dc1b812e",
+                      "name": "Unauthorized.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-finout-client-id",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/megabill/query-language/keys",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "megabill",
+                            "query-language",
+                            "keys"
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:39:24.000Z",
+                      "updatedAt": "2026-07-28T01:39:24.000Z",
+                      "uid": "35240-b6bba6c7-c75f-46e0-a7df-5a07dc1b812e"
+                    },
+                    {
+                      "id": "15301061-5379-4765-bbb4-8a6b84077d7f",
+                      "name": "Too many requests.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-finout-client-id",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/megabill/query-language/keys",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "megabill",
+                            "query-language",
+                            "keys"
+                          ]
+                        }
+                      },
+                      "status": "Too Many Requests",
+                      "code": 429,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:39:24.000Z",
+                      "updatedAt": "2026-07-28T01:39:24.000Z",
+                      "uid": "35240-15301061-5379-4765-bbb4-8a6b84077d7f"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:39:24.000Z",
+                  "updatedAt": "2026-07-28T01:39:24.000Z",
+                  "uid": "35240-7215139f-f6e6-48a0-a702-4f269a09c191"
+                }
+              ],
+              "id": "9b27bb7e-8613-4ab9-90ef-42419853155c",
+              "createdAt": "2026-07-28T01:39:24.000Z",
+              "updatedAt": "2026-07-28T01:39:24.000Z",
+              "uid": "35240-9b27bb7e-8613-4ab9-90ef-42419853155c"
+            },
+            {
+              "name": "values",
+              "item": [
+                {
+                  "name": "{costCenter}",
+                  "item": [
+                    {
+                      "name": "{key}",
+                      "item": [
+                        {
+                          "name": "Finout Get values for a MegaBill key",
+                          "id": "74335fc5-d447-4cb1-ae06-cee379ed236e",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/megabill/query-language/values/:costCenter/:key",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "megabill",
+                                "query-language",
+                                "values",
+                                ":costCenter",
+                                ":key"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "b34ac959-a4a3-4244-b476-0e858f8e342c",
+                                  "key": "costCenter",
+                                  "value": "<string>",
+                                  "description": "(Required) The cost center to query (e.g., AWS, GCP, Azure)."
+                                },
+                                {
+                                  "id": "b871bdb6-f649-4f62-a753-71e003a7e939",
+                                  "key": "key",
+                                  "value": "<string>",
+                                  "description": "(Required) The MegaBill key to retrieve values for."
+                                }
+                              ]
+                            },
+                            "description": "Retrieves the available values for a specific MegaBill key within a cost center."
+                          },
+                          "response": [
+                            {
+                              "id": "ee125be1-7021-473e-bcfd-976a3a3a80d1",
+                              "name": "A list of values for the specified key.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "x-finout-client-id",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/megabill/query-language/values/:costCenter/:key",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "megabill",
+                                    "query-language",
+                                    "values",
+                                    ":costCenter",
+                                    ":key"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "costCenter"
+                                    },
+                                    {
+                                      "key": "key"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "[\n  \"<string>\",\n  \"<string>\"\n]",
+                              "createdAt": "2026-07-28T01:39:24.000Z",
+                              "updatedAt": "2026-07-28T01:39:24.000Z",
+                              "uid": "35240-ee125be1-7021-473e-bcfd-976a3a3a80d1"
+                            },
+                            {
+                              "id": "1671141d-a0d5-46ce-8cdc-8f85285f8b59",
+                              "name": "Unauthorized.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "x-finout-client-id",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/megabill/query-language/values/:costCenter/:key",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "megabill",
+                                    "query-language",
+                                    "values",
+                                    ":costCenter",
+                                    ":key"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "costCenter"
+                                    },
+                                    {
+                                      "key": "key"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:39:24.000Z",
+                              "updatedAt": "2026-07-28T01:39:24.000Z",
+                              "uid": "35240-1671141d-a0d5-46ce-8cdc-8f85285f8b59"
+                            },
+                            {
+                              "id": "a5aa194d-1ee7-40fa-971c-177827a81759",
+                              "name": "Key or cost center not found.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "x-finout-client-id",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/megabill/query-language/values/:costCenter/:key",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "megabill",
+                                    "query-language",
+                                    "values",
+                                    ":costCenter",
+                                    ":key"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "costCenter"
+                                    },
+                                    {
+                                      "key": "key"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:39:24.000Z",
+                              "updatedAt": "2026-07-28T01:39:24.000Z",
+                              "uid": "35240-a5aa194d-1ee7-40fa-971c-177827a81759"
+                            },
+                            {
+                              "id": "25e94b1c-95c8-41a1-ac6e-23151d681568",
+                              "name": "Too many requests.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "x-finout-client-id",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/megabill/query-language/values/:costCenter/:key",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "megabill",
+                                    "query-language",
+                                    "values",
+                                    ":costCenter",
+                                    ":key"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "costCenter"
+                                    },
+                                    {
+                                      "key": "key"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Too Many Requests",
+                              "code": 429,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:39:24.000Z",
+                              "updatedAt": "2026-07-28T01:39:24.000Z",
+                              "uid": "35240-25e94b1c-95c8-41a1-ac6e-23151d681568"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:39:24.000Z",
+                          "updatedAt": "2026-07-28T01:39:24.000Z",
+                          "uid": "35240-74335fc5-d447-4cb1-ae06-cee379ed236e"
+                        }
+                      ],
+                      "id": "a1e43af9-b910-476c-905a-1c82546f6163",
+                      "createdAt": "2026-07-28T01:39:24.000Z",
+                      "updatedAt": "2026-07-28T01:39:24.000Z",
+                      "uid": "35240-a1e43af9-b910-476c-905a-1c82546f6163"
+                    }
+                  ],
+                  "id": "9a9e872d-76f4-4b0e-b44f-dce9525b4c13",
+                  "createdAt": "2026-07-28T01:39:24.000Z",
+                  "updatedAt": "2026-07-28T01:39:24.000Z",
+                  "uid": "35240-9a9e872d-76f4-4b0e-b44f-dce9525b4c13"
+                }
+              ],
+              "id": "0f9de201-9dfd-4caf-a789-63fa5d331258",
+              "createdAt": "2026-07-28T01:39:24.000Z",
+              "updatedAt": "2026-07-28T01:39:24.000Z",
+              "uid": "35240-0f9de201-9dfd-4caf-a789-63fa5d331258"
+            },
+            {
+              "name": "virtual-tags",
+              "item": [
+                {
+                  "name": "Finout Get MegaBill virtual tags",
+                  "id": "31d3faf7-c68b-46e3-b288-2e6de6a31439",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/megabill/query-language/virtual-tags",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "megabill",
+                        "query-language",
+                        "virtual-tags"
+                      ]
+                    },
+                    "description": "Retrieves virtual tags available in the MegaBill for use in filters and views."
+                  },
+                  "response": [
+                    {
+                      "id": "3a277e86-1eef-4797-9855-bf9003719b44",
+                      "name": "A list of virtual tags in MegaBill.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-finout-client-id",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/megabill/query-language/virtual-tags",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "megabill",
+                            "query-language",
+                            "virtual-tags"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"ut_0\": -47114255.86134945\n  },\n  {\n    \"occaecat9\": 67401375.69804755\n  }\n]",
+                      "createdAt": "2026-07-28T01:39:24.000Z",
+                      "updatedAt": "2026-07-28T01:39:24.000Z",
+                      "uid": "35240-3a277e86-1eef-4797-9855-bf9003719b44"
+                    },
+                    {
+                      "id": "ac8c720e-82a9-4991-8dd8-288b9e818176",
+                      "name": "Unauthorized.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-finout-client-id",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/megabill/query-language/virtual-tags",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "megabill",
+                            "query-language",
+                            "virtual-tags"
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:39:24.000Z",
+                      "updatedAt": "2026-07-28T01:39:24.000Z",
+                      "uid": "35240-ac8c720e-82a9-4991-8dd8-288b9e818176"
+                    },
+                    {
+                      "id": "e6701fd9-efeb-45a4-8ede-aff953c947c3",
+                      "name": "Too many requests.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-finout-client-id",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/megabill/query-language/virtual-tags",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "megabill",
+                            "query-language",
+                            "virtual-tags"
+                          ]
+                        }
+                      },
+                      "status": "Too Many Requests",
+                      "code": 429,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:39:24.000Z",
+                      "updatedAt": "2026-07-28T01:39:24.000Z",
+                      "uid": "35240-e6701fd9-efeb-45a4-8ede-aff953c947c3"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:39:24.000Z",
+                  "updatedAt": "2026-07-28T01:39:24.000Z",
+                  "uid": "35240-31d3faf7-c68b-46e3-b288-2e6de6a31439"
+                }
+              ],
+              "id": "ab6fb15d-6af1-473c-96f6-ea4cb1d1b661",
+              "createdAt": "2026-07-28T01:39:24.000Z",
+              "updatedAt": "2026-07-28T01:39:24.000Z",
+              "uid": "35240-ab6fb15d-6af1-473c-96f6-ea4cb1d1b661"
+            }
+          ],
+          "id": "90907262-65b9-474f-8fa0-99269380680e",
+          "createdAt": "2026-07-28T01:39:24.000Z",
+          "updatedAt": "2026-07-28T01:39:24.000Z",
+          "uid": "35240-90907262-65b9-474f-8fa0-99269380680e"
+        }
+      ],
+      "id": "afdf0915-4870-4840-ad98-a7d5c03e7c37",
+      "createdAt": "2026-07-28T01:39:24.000Z",
+      "updatedAt": "2026-07-28T01:39:24.000Z",
+      "uid": "35240-afdf0915-4870-4840-ad98-a7d5c03e7c37"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-finout-client-id",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://app.finout.io/v1"
+    }
+  ]
+}

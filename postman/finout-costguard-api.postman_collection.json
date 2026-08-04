@@ -1,0 +1,457 @@
+{
+  "info": {
+    "_postman_id": "7afd3a2f-de5a-4806-9503-9edd7c5d7e5a",
+    "name": "Finout Cost CostGuard API",
+    "description": "The Finout API provides seamless access to powerful cloud cost management tools, enabling you to integrate, analyze, and optimize your cloud expenses. It includes endpoints for cost insights, tagging, forecasting, and more, empowering teams to automate workflows, track spending, and drive efficiency across cloud environments.\n\nContact Support:\n Name: Finout",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:39:21.000Z",
+    "updatedAt": "2026-07-28T01:39:21.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-7afd3a2f-de5a-4806-9503-9edd7c5d7e5a"
+  },
+  "item": [
+    {
+      "name": "cost-guard",
+      "item": [
+        {
+          "name": "scans",
+          "item": [
+            {
+              "name": "Finout Get all CostGuard scans",
+              "id": "b3465be5-1d91-4587-bc95-fec3049ccd46",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/cost-guard/scans",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "cost-guard",
+                    "scans"
+                  ]
+                },
+                "description": "Retrieves all CostGuard scan options available for the account."
+              },
+              "response": [
+                {
+                  "id": "87413259-194b-458b-b10f-5cc001f897da",
+                  "name": "A list of CostGuard scan options.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "x-finout-client-id",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/cost-guard/scans",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "cost-guard",
+                        "scans"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "[\n  {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"lastRunTime\": \"<string>\",\n    \"status\": \"<string>\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"lastRunTime\": \"<string>\",\n    \"status\": \"<string>\"\n  }\n]",
+                  "createdAt": "2026-07-28T01:39:22.000Z",
+                  "updatedAt": "2026-07-28T01:39:22.000Z",
+                  "uid": "35240-87413259-194b-458b-b10f-5cc001f897da"
+                },
+                {
+                  "id": "8dd28af5-d6b7-4500-8be3-8a509ce4d861",
+                  "name": "Unauthorized.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "x-finout-client-id",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/cost-guard/scans",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "cost-guard",
+                        "scans"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:39:22.000Z",
+                  "updatedAt": "2026-07-28T01:39:22.000Z",
+                  "uid": "35240-8dd28af5-d6b7-4500-8be3-8a509ce4d861"
+                },
+                {
+                  "id": "76aba3bf-fa5d-49c2-b6b1-0e7947e47446",
+                  "name": "Too many requests.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "x-finout-client-id",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/cost-guard/scans",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "cost-guard",
+                        "scans"
+                      ]
+                    }
+                  },
+                  "status": "Too Many Requests",
+                  "code": 429,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:39:22.000Z",
+                  "updatedAt": "2026-07-28T01:39:22.000Z",
+                  "uid": "35240-76aba3bf-fa5d-49c2-b6b1-0e7947e47446"
+                }
+              ],
+              "createdAt": "2026-07-28T01:39:22.000Z",
+              "updatedAt": "2026-07-28T01:39:22.000Z",
+              "uid": "35240-b3465be5-1d91-4587-bc95-fec3049ccd46"
+            }
+          ],
+          "id": "266c8aa4-bc46-4e35-b05e-da54484dfd82",
+          "createdAt": "2026-07-28T01:39:22.000Z",
+          "updatedAt": "2026-07-28T01:39:22.000Z",
+          "uid": "35240-266c8aa4-bc46-4e35-b05e-da54484dfd82"
+        },
+        {
+          "name": "scans-recommendations",
+          "item": [
+            {
+              "name": "Finout Get scan recommendations",
+              "id": "cb5c5c3c-bf74-4420-8a13-0826f724078c",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"scanId\": \"<string>\",\n  \"filter\": {\n    \"costCenter\": \"<string>\",\n    \"key\": \"<string>\",\n    \"displayName\": \"<string>\",\n    \"operator\": \"oneOf\",\n    \"value\": \"<string>\",\n    \"and\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n      }\n    ],\n    \"or\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n      }\n    ]\n  },\n  \"groupBy\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/cost-guard/scans-recommendations",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "cost-guard",
+                    "scans-recommendations"
+                  ]
+                },
+                "description": "Retrieves all resources identified in a scan based on scanId, optional filters, and groupBy. You must first GET the scan you want to query and then add the scan ID to the body of the POST query."
+              },
+              "response": [
+                {
+                  "id": "9641554b-f566-4b22-877e-21bdc1e45e70",
+                  "name": "Scan recommendations retrieved successfully.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "x-finout-client-id",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"scanId\": \"<string>\",\n  \"filter\": {\n    \"costCenter\": \"<string>\",\n    \"key\": \"<string>\",\n    \"displayName\": \"<string>\",\n    \"operator\": \"oneOf\",\n    \"value\": \"<string>\",\n    \"and\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n      }\n    ],\n    \"or\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n      }\n    ]\n  },\n  \"groupBy\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/cost-guard/scans-recommendations",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "cost-guard",
+                        "scans-recommendations"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"requestId\": \"<string>\",\n  \"scanName\": \"<string>\",\n  \"scanLastRunTime\": \"<string>\",\n  \"scanTotalCost\": \"<double>\",\n  \"scanTotalWaste\": \"<double>\",\n  \"scanYearlyPotentialSavings\": \"<double>\",\n  \"resources\": [\n    {\n      \"cupidatat93\": true,\n      \"quis_d\": -13409318.664568111\n    },\n    {\n      \"adipisicing21a\": false,\n      \"ullamcoec\": 27966290.539194062,\n      \"tempor_dd2\": -15818562\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:39:22.000Z",
+                  "updatedAt": "2026-07-28T01:39:22.000Z",
+                  "uid": "35240-9641554b-f566-4b22-877e-21bdc1e45e70"
+                },
+                {
+                  "id": "d03b79d6-46c5-4bf0-a8ef-96efe9c18b93",
+                  "name": "Bad request.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "x-finout-client-id",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"scanId\": \"<string>\",\n  \"filter\": {\n    \"costCenter\": \"<string>\",\n    \"key\": \"<string>\",\n    \"displayName\": \"<string>\",\n    \"operator\": \"oneOf\",\n    \"value\": \"<string>\",\n    \"and\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n      }\n    ],\n    \"or\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n      }\n    ]\n  },\n  \"groupBy\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/cost-guard/scans-recommendations",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "cost-guard",
+                        "scans-recommendations"
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:39:22.000Z",
+                  "updatedAt": "2026-07-28T01:39:22.000Z",
+                  "uid": "35240-d03b79d6-46c5-4bf0-a8ef-96efe9c18b93"
+                },
+                {
+                  "id": "3ae00edd-e2d1-494a-bf1b-6f32f896e122",
+                  "name": "Unauthorized.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "x-finout-client-id",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"scanId\": \"<string>\",\n  \"filter\": {\n    \"costCenter\": \"<string>\",\n    \"key\": \"<string>\",\n    \"displayName\": \"<string>\",\n    \"operator\": \"oneOf\",\n    \"value\": \"<string>\",\n    \"and\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n      }\n    ],\n    \"or\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n      }\n    ]\n  },\n  \"groupBy\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/cost-guard/scans-recommendations",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "cost-guard",
+                        "scans-recommendations"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:39:22.000Z",
+                  "updatedAt": "2026-07-28T01:39:22.000Z",
+                  "uid": "35240-3ae00edd-e2d1-494a-bf1b-6f32f896e122"
+                },
+                {
+                  "id": "0f12c61a-0ca4-461c-b6b3-15300d9cf21f",
+                  "name": "Too many requests.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "x-finout-client-id",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"scanId\": \"<string>\",\n  \"filter\": {\n    \"costCenter\": \"<string>\",\n    \"key\": \"<string>\",\n    \"displayName\": \"<string>\",\n    \"operator\": \"oneOf\",\n    \"value\": \"<string>\",\n    \"and\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n      }\n    ],\n    \"or\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n      }\n    ]\n  },\n  \"groupBy\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/cost-guard/scans-recommendations",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "cost-guard",
+                        "scans-recommendations"
+                      ]
+                    }
+                  },
+                  "status": "Too Many Requests",
+                  "code": 429,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:39:22.000Z",
+                  "updatedAt": "2026-07-28T01:39:22.000Z",
+                  "uid": "35240-0f12c61a-0ca4-461c-b6b3-15300d9cf21f"
+                }
+              ],
+              "createdAt": "2026-07-28T01:39:22.000Z",
+              "updatedAt": "2026-07-28T01:39:22.000Z",
+              "uid": "35240-cb5c5c3c-bf74-4420-8a13-0826f724078c"
+            }
+          ],
+          "id": "9ab6eeef-4929-4ba0-a719-4bae816c7864",
+          "createdAt": "2026-07-28T01:39:22.000Z",
+          "updatedAt": "2026-07-28T01:39:22.000Z",
+          "uid": "35240-9ab6eeef-4929-4ba0-a719-4bae816c7864"
+        }
+      ],
+      "id": "7e09ffda-a521-41d1-9c4e-848105a6407a",
+      "createdAt": "2026-07-28T01:39:22.000Z",
+      "updatedAt": "2026-07-28T01:39:22.000Z",
+      "uid": "35240-7e09ffda-a521-41d1-9c4e-848105a6407a"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-finout-client-id",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://app.finout.io/v1"
+    }
+  ]
+}
