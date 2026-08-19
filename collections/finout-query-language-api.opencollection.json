@@ -1,0 +1,73 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Finout Cost Query Language API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-finout-client-id",
+      "value": "{{x-finout-client-id}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Query Language",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Finout Get all MegaBill keys",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.finout.io/v1/megabill/query-language/keys"
+          },
+          "docs": "Retrieves all MegaBill keys. This endpoint is used to understand the different building blocks of Finout's MegaFilter, and the information needed to build Virtual Tags and views."
+        },
+        {
+          "info": {
+            "name": "Finout Get values for a MegaBill key",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.finout.io/v1/megabill/query-language/values/:costCenter/:key",
+            "params": [
+              {
+                "name": "costCenter",
+                "value": "",
+                "type": "path",
+                "description": "The cost center to query (e.g., AWS, GCP, Azure)."
+              },
+              {
+                "name": "key",
+                "value": "",
+                "type": "path",
+                "description": "The MegaBill key to retrieve values for."
+              }
+            ]
+          },
+          "docs": "Retrieves the available values for a specific MegaBill key within a cost center."
+        },
+        {
+          "info": {
+            "name": "Finout Get MegaBill virtual tags",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.finout.io/v1/megabill/query-language/virtual-tags"
+          },
+          "docs": "Retrieves virtual tags available in the MegaBill for use in filters and views."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

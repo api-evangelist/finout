@@ -1,0 +1,41 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Finout Cost API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-finout-client-id",
+      "value": "{{x-finout-client-id}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Cost",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Finout Query costs for a view",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.finout.io/v1/view",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Query and analyze costs using user-defined Finout Views. You can query the costs for any date range of up to 90 days specified in UTC timestamps. You must either specify dates or delete them completely; the query will not work when blank dates are still present."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

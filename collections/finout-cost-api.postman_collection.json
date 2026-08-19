@@ -1,0 +1,289 @@
+{
+  "item": [
+    {
+      "id": "bc470eee-693f-48fb-b2de-762c514a0674",
+      "name": "Cost",
+      "description": {
+        "content": "Query and analyze costs using Finout Views",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ed22f8ff-620b-44ac-9051-02005dfe67d1",
+          "name": "Finout Query costs for a view",
+          "request": {
+            "name": "Finout Query costs for a view",
+            "description": {
+              "content": "Query and analyze costs using user-defined Finout Views. You can query the costs for any date range of up to 90 days specified in UTC timestamps. You must either specify dates or delete them completely; the query will not work when blank dates are still present.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "view"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"viewId\": \"<string>\",\n  \"date\": {\n    \"unixTimeMillSecondsStart\": \"<long>\",\n    \"unixTimeMillSecondsEnd\": \"<long>\"\n  },\n  \"filter\": {\n    \"costCenter\": \"<string>\",\n    \"key\": \"<string>\",\n    \"displayName\": \"<string>\",\n    \"operator\": \"<string>\",\n    \"value\": \"<string>\",\n    \"and\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n      }\n    ],\n    \"or\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n      }\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "009c61e0-3a5e-485e-bd25-16edc85ac843",
+              "name": "Successful cost query response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "view"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-finout-client-id",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"viewId\": \"<string>\",\n  \"date\": {\n    \"unixTimeMillSecondsStart\": \"<long>\",\n    \"unixTimeMillSecondsEnd\": \"<long>\"\n  },\n  \"filter\": {\n    \"costCenter\": \"string\",\n    \"key\": \"string\",\n    \"displayName\": \"string\",\n    \"operator\": \"is\",\n    \"value\": \"string\",\n    \"and\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n      }\n    ],\n    \"or\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"key_0\": 5098,\n      \"key_1\": 6120\n    },\n    {\n      \"key_0\": 4804,\n      \"key_1\": 7647.848646965734,\n      \"key_2\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c3cc1e1e-1f0e-41a6-b1dc-a3f20e3f4ef8",
+              "name": "Bad request. The request was malformed or missing required fields.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "view"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-finout-client-id",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"viewId\": \"<string>\",\n  \"date\": {\n    \"unixTimeMillSecondsStart\": \"<long>\",\n    \"unixTimeMillSecondsEnd\": \"<long>\"\n  },\n  \"filter\": {\n    \"costCenter\": \"string\",\n    \"key\": \"string\",\n    \"displayName\": \"string\",\n    \"operator\": \"is\",\n    \"value\": \"string\",\n    \"and\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n      }\n    ],\n    \"or\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4522072d-d6de-4a43-aee0-572da8e83492",
+              "name": "Unauthorized. Invalid or missing authentication credentials.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "view"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-finout-client-id",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"viewId\": \"<string>\",\n  \"date\": {\n    \"unixTimeMillSecondsStart\": \"<long>\",\n    \"unixTimeMillSecondsEnd\": \"<long>\"\n  },\n  \"filter\": {\n    \"costCenter\": \"string\",\n    \"key\": \"string\",\n    \"displayName\": \"string\",\n    \"operator\": \"is\",\n    \"value\": \"string\",\n    \"and\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n      }\n    ],\n    \"or\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f99ff9ea-c92a-4236-ab17-2f48e992c887",
+              "name": "Too many requests. Rate limit exceeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "view"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-finout-client-id",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"viewId\": \"<string>\",\n  \"date\": {\n    \"unixTimeMillSecondsStart\": \"<long>\",\n    \"unixTimeMillSecondsEnd\": \"<long>\"\n  },\n  \"filter\": {\n    \"costCenter\": \"string\",\n    \"key\": \"string\",\n    \"displayName\": \"string\",\n    \"operator\": \"is\",\n    \"value\": \"string\",\n    \"and\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n      }\n    ],\n    \"or\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.finout.io/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-finout-client-id"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "11e26ea4-335b-4297-9877-bb2c5ea62f2c",
+    "name": "Finout Cost API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Finout API provides seamless access to powerful cloud cost management tools, enabling you to integrate, analyze, and optimize your cloud expenses. It includes endpoints for cost insights, tagging, forecasting, and more, empowering teams to automate workflows, track spending, and drive efficiency across cloud environments.\n\nContact Support:\n Name: Finout",
+      "type": "text/plain"
+    }
+  }
+}

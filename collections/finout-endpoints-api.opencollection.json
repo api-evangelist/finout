@@ -1,0 +1,52 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Finout Cost Endpoints API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-finout-client-id",
+      "value": "{{x-finout-client-id}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Endpoints",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Finout Get all endpoints",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.finout.io/v1/endpoints"
+          },
+          "docs": "Gets a list of all notification endpoints for the account."
+        },
+        {
+          "info": {
+            "name": "Finout Create an endpoint",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.finout.io/v1/endpoints",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates an email, Slack, or Microsoft Teams notification endpoint in Finout."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

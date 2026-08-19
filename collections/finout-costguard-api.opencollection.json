@@ -1,0 +1,52 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Finout Cost CostGuard API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-finout-client-id",
+      "value": "{{x-finout-client-id}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "CostGuard",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Finout Get all CostGuard scans",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.finout.io/v1/cost-guard/scans"
+          },
+          "docs": "Retrieves all CostGuard scan options available for the account."
+        },
+        {
+          "info": {
+            "name": "Finout Get scan recommendations",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.finout.io/v1/cost-guard/scans-recommendations",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Retrieves all resources identified in a scan based on scanId, optional filters, and groupBy. You must first GET the scan you want to query and then add the scan ID to the body of the POST query."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

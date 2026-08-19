@@ -1,0 +1,68 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Finout Cost Virtual Tag Metadata API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-finout-client-id",
+      "value": "{{x-finout-client-id}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Virtual Tag Metadata",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Finout Get virtual tag metadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.finout.io/v1/virtual-tags/:virtualTagId/metadata",
+            "params": [
+              {
+                "name": "virtualTagId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the virtual tag."
+              }
+            ]
+          },
+          "docs": "Retrieves metadata for a specific virtual tag. When grouping by virtual tag, if virtual tag values include endpoint metadata, they will automatically be populated and updated."
+        },
+        {
+          "info": {
+            "name": "Finout Update virtual tag metadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.finout.io/v1/virtual-tags/:virtualTagId/metadata",
+            "params": [
+              {
+                "name": "virtualTagId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the virtual tag."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates metadata for a specific virtual tag, including endpoint information for each virtual tag value."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

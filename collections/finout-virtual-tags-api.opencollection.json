@@ -1,0 +1,105 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Finout Cost Virtual Tags API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-finout-client-id",
+      "value": "{{x-finout-client-id}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Virtual Tags",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Finout Get all virtual tags",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.finout.io/v1/virtual-tag"
+          },
+          "docs": "Retrieves all virtual tag configurations for the account."
+        },
+        {
+          "info": {
+            "name": "Finout Create a virtual tag",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.finout.io/v1/virtual-tag",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new virtual tag configuration."
+        },
+        {
+          "info": {
+            "name": "Finout Update a virtual tag",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.finout.io/v1/virtual-tag",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates an existing virtual tag configuration."
+        },
+        {
+          "info": {
+            "name": "Finout Get a virtual tag by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.finout.io/v1/virtual-tag/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the virtual tag."
+              }
+            ]
+          },
+          "docs": "Retrieves a specific virtual tag configuration by its unique identifier."
+        },
+        {
+          "info": {
+            "name": "Finout Delete a virtual tag",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.finout.io/v1/virtual-tag/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the virtual tag to delete."
+              }
+            ]
+          },
+          "docs": "Deletes a virtual tag configuration by its unique identifier."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

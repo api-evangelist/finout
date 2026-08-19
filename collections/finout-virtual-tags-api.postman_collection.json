@@ -1,0 +1,1202 @@
+{
+  "item": [
+    {
+      "id": "dfba5325-ad6c-4fa9-85e9-f30d01e1b01a",
+      "name": "Virtual Tags",
+      "description": {
+        "content": "Create, retrieve, update, and delete Virtual Tag configurations",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f300b49f-4631-4d58-ad0f-3380f0709b17",
+          "name": "Finout Get all virtual tags",
+          "request": {
+            "name": "Finout Get all virtual tags",
+            "description": {
+              "content": "Retrieves all virtual tag configurations for the account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "virtual-tag"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d1cbfada-00a4-4848-8829-7d8281488ea9",
+              "name": "A list of virtual tag configurations.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "virtual-tag"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-finout-client-id",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"accountId\": \"string\",\n    \"name\": \"string\",\n    \"rules\": [\n      {\n        \"name\": \"string\",\n        \"filter\": {\n          \"costCenter\": \"string\",\n          \"key\": \"string\",\n          \"displayName\": \"string\",\n          \"operator\": \"is\",\n          \"value\": \"string\",\n          \"and\": [\n            {\n              \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n            },\n            {\n              \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n            }\n          ],\n          \"or\": [\n            {\n              \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n            },\n            {\n              \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n            }\n          ]\n        }\n      },\n      {\n        \"name\": \"string\",\n        \"filter\": {\n          \"costCenter\": \"string\",\n          \"key\": \"string\",\n          \"displayName\": \"string\",\n          \"operator\": \"oneOf\",\n          \"value\": \"string\",\n          \"and\": [\n            {\n              \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n            },\n            {\n              \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n            }\n          ],\n          \"or\": [\n            {\n              \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n            },\n            {\n              \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n            }\n          ]\n        }\n      }\n    ]\n  },\n  {\n    \"id\": \"string\",\n    \"accountId\": \"string\",\n    \"name\": \"string\",\n    \"rules\": [\n      {\n        \"name\": \"string\",\n        \"filter\": {\n          \"costCenter\": \"string\",\n          \"key\": \"string\",\n          \"displayName\": \"string\",\n          \"operator\": \"isNot\",\n          \"value\": \"string\",\n          \"and\": [\n            {\n              \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n            },\n            {\n              \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n            }\n          ],\n          \"or\": [\n            {\n              \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n            },\n            {\n              \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n            }\n          ]\n        }\n      },\n      {\n        \"name\": \"string\",\n        \"filter\": {\n          \"costCenter\": \"string\",\n          \"key\": \"string\",\n          \"displayName\": \"string\",\n          \"operator\": \"isNot\",\n          \"value\": \"string\",\n          \"and\": [\n            {\n              \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n            },\n            {\n              \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n            }\n          ],\n          \"or\": [\n            {\n              \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n            },\n            {\n              \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n            }\n          ]\n        }\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5a8ee64e-6d5f-42f4-8dd4-1d7ddd66ac1f",
+              "name": "Unauthorized.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "virtual-tag"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-finout-client-id",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ca080c09-6098-4c20-9fb7-b806a339cb1e",
+              "name": "Too many requests.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "virtual-tag"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-finout-client-id",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "17251ac7-f5f3-4568-af5f-f82a17bc88dc",
+          "name": "Finout Create a virtual tag",
+          "request": {
+            "name": "Finout Create a virtual tag",
+            "description": {
+              "content": "Creates a new virtual tag configuration.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "virtual-tag"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"rules\": [\n    {\n      \"name\": \"<string>\",\n      \"filter\": {\n        \"costCenter\": \"<string>\",\n        \"key\": \"<string>\",\n        \"displayName\": \"<string>\",\n        \"operator\": \"<string>\",\n        \"value\": \"<string>\",\n        \"and\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          }\n        ],\n        \"or\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          }\n        ]\n      }\n    },\n    {\n      \"name\": \"<string>\",\n      \"filter\": {\n        \"costCenter\": \"<string>\",\n        \"key\": \"<string>\",\n        \"displayName\": \"<string>\",\n        \"operator\": \"<string>\",\n        \"value\": \"<string>\",\n        \"and\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          }\n        ],\n        \"or\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          }\n        ]\n      }\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5936b66a-139d-4d65-8fe3-6630b2f05739",
+              "name": "Virtual tag created successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "virtual-tag"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-finout-client-id",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"rules\": [\n    {\n      \"name\": \"string\",\n      \"filter\": {\n        \"costCenter\": \"string\",\n        \"key\": \"string\",\n        \"displayName\": \"string\",\n        \"operator\": \"notContains\",\n        \"value\": \"string\",\n        \"and\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          }\n        ],\n        \"or\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          }\n        ]\n      }\n    },\n    {\n      \"name\": \"string\",\n      \"filter\": {\n        \"costCenter\": \"string\",\n        \"key\": \"string\",\n        \"displayName\": \"string\",\n        \"operator\": \"oneOf\",\n        \"value\": \"string\",\n        \"and\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          }\n        ],\n        \"or\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          }\n        ]\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"accountId\": \"string\",\n  \"name\": \"string\",\n  \"rules\": [\n    {\n      \"name\": \"string\",\n      \"filter\": {\n        \"costCenter\": \"string\",\n        \"key\": \"string\",\n        \"displayName\": \"string\",\n        \"operator\": \"contains\",\n        \"value\": \"string\",\n        \"and\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          }\n        ],\n        \"or\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          }\n        ]\n      }\n    },\n    {\n      \"name\": \"string\",\n      \"filter\": {\n        \"costCenter\": \"string\",\n        \"key\": \"string\",\n        \"displayName\": \"string\",\n        \"operator\": \"notExists\",\n        \"value\": \"string\",\n        \"and\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          }\n        ],\n        \"or\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          }\n        ]\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ae4c01ab-2d89-451d-a6a4-351ea850322b",
+              "name": "Bad request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "virtual-tag"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-finout-client-id",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"rules\": [\n    {\n      \"name\": \"string\",\n      \"filter\": {\n        \"costCenter\": \"string\",\n        \"key\": \"string\",\n        \"displayName\": \"string\",\n        \"operator\": \"notContains\",\n        \"value\": \"string\",\n        \"and\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          }\n        ],\n        \"or\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          }\n        ]\n      }\n    },\n    {\n      \"name\": \"string\",\n      \"filter\": {\n        \"costCenter\": \"string\",\n        \"key\": \"string\",\n        \"displayName\": \"string\",\n        \"operator\": \"oneOf\",\n        \"value\": \"string\",\n        \"and\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          }\n        ],\n        \"or\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          }\n        ]\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ed124d0e-bc02-40d1-9f10-5d3e5f882c5b",
+              "name": "Unauthorized.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "virtual-tag"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-finout-client-id",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"rules\": [\n    {\n      \"name\": \"string\",\n      \"filter\": {\n        \"costCenter\": \"string\",\n        \"key\": \"string\",\n        \"displayName\": \"string\",\n        \"operator\": \"notContains\",\n        \"value\": \"string\",\n        \"and\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          }\n        ],\n        \"or\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          }\n        ]\n      }\n    },\n    {\n      \"name\": \"string\",\n      \"filter\": {\n        \"costCenter\": \"string\",\n        \"key\": \"string\",\n        \"displayName\": \"string\",\n        \"operator\": \"oneOf\",\n        \"value\": \"string\",\n        \"and\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          }\n        ],\n        \"or\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          }\n        ]\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e188c8c7-9286-4f8e-911a-1e3f259a8757",
+              "name": "Too many requests.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "virtual-tag"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-finout-client-id",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"rules\": [\n    {\n      \"name\": \"string\",\n      \"filter\": {\n        \"costCenter\": \"string\",\n        \"key\": \"string\",\n        \"displayName\": \"string\",\n        \"operator\": \"notContains\",\n        \"value\": \"string\",\n        \"and\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          }\n        ],\n        \"or\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          }\n        ]\n      }\n    },\n    {\n      \"name\": \"string\",\n      \"filter\": {\n        \"costCenter\": \"string\",\n        \"key\": \"string\",\n        \"displayName\": \"string\",\n        \"operator\": \"oneOf\",\n        \"value\": \"string\",\n        \"and\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          }\n        ],\n        \"or\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          }\n        ]\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d690248d-c605-47ec-b9a3-c1be9ff4bbc3",
+          "name": "Finout Update a virtual tag",
+          "request": {
+            "name": "Finout Update a virtual tag",
+            "description": {
+              "content": "Updates an existing virtual tag configuration.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "virtual-tag"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<string>\",\n  \"accountId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"rules\": [\n    {\n      \"name\": \"<string>\",\n      \"filter\": {\n        \"costCenter\": \"<string>\",\n        \"key\": \"<string>\",\n        \"displayName\": \"<string>\",\n        \"operator\": \"<string>\",\n        \"value\": \"<string>\",\n        \"and\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          }\n        ],\n        \"or\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          }\n        ]\n      }\n    },\n    {\n      \"name\": \"<string>\",\n      \"filter\": {\n        \"costCenter\": \"<string>\",\n        \"key\": \"<string>\",\n        \"displayName\": \"<string>\",\n        \"operator\": \"<string>\",\n        \"value\": \"<string>\",\n        \"and\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          }\n        ],\n        \"or\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          }\n        ]\n      }\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6b7abfb8-33a7-4e54-8824-8306760fad7b",
+              "name": "Virtual tag updated successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "virtual-tag"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-finout-client-id",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"accountId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"rules\": [\n    {\n      \"name\": \"string\",\n      \"filter\": {\n        \"costCenter\": \"string\",\n        \"key\": \"string\",\n        \"displayName\": \"string\",\n        \"operator\": \"notExists\",\n        \"value\": \"string\",\n        \"and\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          }\n        ],\n        \"or\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          }\n        ]\n      }\n    },\n    {\n      \"name\": \"string\",\n      \"filter\": {\n        \"costCenter\": \"string\",\n        \"key\": \"string\",\n        \"displayName\": \"string\",\n        \"operator\": \"isNot\",\n        \"value\": \"string\",\n        \"and\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          }\n        ],\n        \"or\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          }\n        ]\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"accountId\": \"string\",\n  \"name\": \"string\",\n  \"rules\": [\n    {\n      \"name\": \"string\",\n      \"filter\": {\n        \"costCenter\": \"string\",\n        \"key\": \"string\",\n        \"displayName\": \"string\",\n        \"operator\": \"contains\",\n        \"value\": \"string\",\n        \"and\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          }\n        ],\n        \"or\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          }\n        ]\n      }\n    },\n    {\n      \"name\": \"string\",\n      \"filter\": {\n        \"costCenter\": \"string\",\n        \"key\": \"string\",\n        \"displayName\": \"string\",\n        \"operator\": \"notExists\",\n        \"value\": \"string\",\n        \"and\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          }\n        ],\n        \"or\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          }\n        ]\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "77c59e1c-8e9d-411e-b1f0-c1d40f231b84",
+              "name": "Bad request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "virtual-tag"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-finout-client-id",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"accountId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"rules\": [\n    {\n      \"name\": \"string\",\n      \"filter\": {\n        \"costCenter\": \"string\",\n        \"key\": \"string\",\n        \"displayName\": \"string\",\n        \"operator\": \"notExists\",\n        \"value\": \"string\",\n        \"and\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          }\n        ],\n        \"or\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          }\n        ]\n      }\n    },\n    {\n      \"name\": \"string\",\n      \"filter\": {\n        \"costCenter\": \"string\",\n        \"key\": \"string\",\n        \"displayName\": \"string\",\n        \"operator\": \"isNot\",\n        \"value\": \"string\",\n        \"and\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          }\n        ],\n        \"or\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          }\n        ]\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "858a7677-ed46-4eb5-b296-1136f3c5374f",
+              "name": "Unauthorized.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "virtual-tag"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-finout-client-id",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"accountId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"rules\": [\n    {\n      \"name\": \"string\",\n      \"filter\": {\n        \"costCenter\": \"string\",\n        \"key\": \"string\",\n        \"displayName\": \"string\",\n        \"operator\": \"notExists\",\n        \"value\": \"string\",\n        \"and\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          }\n        ],\n        \"or\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          }\n        ]\n      }\n    },\n    {\n      \"name\": \"string\",\n      \"filter\": {\n        \"costCenter\": \"string\",\n        \"key\": \"string\",\n        \"displayName\": \"string\",\n        \"operator\": \"isNot\",\n        \"value\": \"string\",\n        \"and\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          }\n        ],\n        \"or\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          }\n        ]\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c4ab4a89-d72d-4cfd-ab68-61a54cc33707",
+              "name": "Virtual tag not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "virtual-tag"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-finout-client-id",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"accountId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"rules\": [\n    {\n      \"name\": \"string\",\n      \"filter\": {\n        \"costCenter\": \"string\",\n        \"key\": \"string\",\n        \"displayName\": \"string\",\n        \"operator\": \"notExists\",\n        \"value\": \"string\",\n        \"and\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          }\n        ],\n        \"or\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          }\n        ]\n      }\n    },\n    {\n      \"name\": \"string\",\n      \"filter\": {\n        \"costCenter\": \"string\",\n        \"key\": \"string\",\n        \"displayName\": \"string\",\n        \"operator\": \"isNot\",\n        \"value\": \"string\",\n        \"and\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          }\n        ],\n        \"or\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          }\n        ]\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a8bf87f7-f590-4a26-a6fb-0b254ff3afa1",
+              "name": "Too many requests.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "virtual-tag"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-finout-client-id",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"accountId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"rules\": [\n    {\n      \"name\": \"string\",\n      \"filter\": {\n        \"costCenter\": \"string\",\n        \"key\": \"string\",\n        \"displayName\": \"string\",\n        \"operator\": \"notExists\",\n        \"value\": \"string\",\n        \"and\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          }\n        ],\n        \"or\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          }\n        ]\n      }\n    },\n    {\n      \"name\": \"string\",\n      \"filter\": {\n        \"costCenter\": \"string\",\n        \"key\": \"string\",\n        \"displayName\": \"string\",\n        \"operator\": \"isNot\",\n        \"value\": \"string\",\n        \"and\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          }\n        ],\n        \"or\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          }\n        ]\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "890c8d58-d821-4c59-980a-e0c115138355",
+          "name": "Finout Get a virtual tag by ID",
+          "request": {
+            "name": "Finout Get a virtual tag by ID",
+            "description": {
+              "content": "Retrieves a specific virtual tag configuration by its unique identifier.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "virtual-tag",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The unique identifier of the virtual tag."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "87ac771a-e046-4535-adb8-7f3382797c53",
+              "name": "The requested virtual tag configuration.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "virtual-tag",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the virtual tag."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-finout-client-id",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"accountId\": \"string\",\n  \"name\": \"string\",\n  \"rules\": [\n    {\n      \"name\": \"string\",\n      \"filter\": {\n        \"costCenter\": \"string\",\n        \"key\": \"string\",\n        \"displayName\": \"string\",\n        \"operator\": \"contains\",\n        \"value\": \"string\",\n        \"and\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          }\n        ],\n        \"or\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          }\n        ]\n      }\n    },\n    {\n      \"name\": \"string\",\n      \"filter\": {\n        \"costCenter\": \"string\",\n        \"key\": \"string\",\n        \"displayName\": \"string\",\n        \"operator\": \"notExists\",\n        \"value\": \"string\",\n        \"and\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          }\n        ],\n        \"or\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/FilterObject detected>\"\n          }\n        ]\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f25d982b-e869-4d0f-939c-8cd0b641ccb1",
+              "name": "Unauthorized.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "virtual-tag",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the virtual tag."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-finout-client-id",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a02e99e0-40f4-4b0f-8792-15e72afff7c3",
+              "name": "Virtual tag not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "virtual-tag",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the virtual tag."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-finout-client-id",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8f88bca5-626d-47fe-85a9-18584eaa9a93",
+              "name": "Too many requests.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "virtual-tag",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the virtual tag."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-finout-client-id",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0476e5ea-e98c-4723-b443-404c97c7e8ff",
+          "name": "Finout Delete a virtual tag",
+          "request": {
+            "name": "Finout Delete a virtual tag",
+            "description": {
+              "content": "Deletes a virtual tag configuration by its unique identifier.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "virtual-tag",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The unique identifier of the virtual tag to delete."
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2261afc8-d6e5-402a-b58b-cd1fd2e9ca1f",
+              "name": "Virtual tag deleted successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "virtual-tag",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the virtual tag to delete."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-finout-client-id",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3674798f-894e-4331-b3fa-ecb0c8068612",
+              "name": "Unauthorized.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "virtual-tag",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the virtual tag to delete."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-finout-client-id",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d23ff81c-0ea3-4a87-a37f-1f8b4daee106",
+              "name": "Virtual tag not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "virtual-tag",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the virtual tag to delete."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-finout-client-id",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "361de95b-8dc1-4eac-a078-be839ef85c33",
+              "name": "Too many requests.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "virtual-tag",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the virtual tag to delete."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-finout-client-id",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.finout.io/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-finout-client-id"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "4ee8b28c-f2d8-4d7a-aace-0b6df05bcd89",
+    "name": "Finout Cost Virtual Tags API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Finout API provides seamless access to powerful cloud cost management tools, enabling you to integrate, analyze, and optimize your cloud expenses. It includes endpoints for cost insights, tagging, forecasting, and more, empowering teams to automate workflows, track spending, and drive efficiency across cloud environments.\n\nContact Support:\n Name: Finout",
+      "type": "text/plain"
+    }
+  }
+}
