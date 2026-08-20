@@ -54,7 +54,8 @@ apis:
   description: Query and create notification endpoints
   humanURL: https://www.finout.io/
   baseURL: https://app.finout.io/v1
-  tags:
+  tags: []
+  tags_raw:
   - Endpoints
   properties:
   - type: OpenAPI
