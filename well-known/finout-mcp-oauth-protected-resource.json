@@ -1,0 +1,1 @@
+{"resource":"https://mcp.finout.io/mcp","authorization_servers":["https://mcp.finout.io"],"scopes_supported":["mcp"],"bearer_methods_supported":["header"]}

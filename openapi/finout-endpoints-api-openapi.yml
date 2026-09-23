@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Finout Cost Endpoints API
+  title: Finout Endpoints API
   description: The Finout API provides seamless access to powerful cloud cost management tools, enabling you to integrate, analyze, and optimize your cloud expenses. It includes endpoints for cost insights, tagging, forecasting, and more, empowering teams to automate workflows, track spending, and drive efficiency across cloud environments.
   version: 1.0.0
   contact:
