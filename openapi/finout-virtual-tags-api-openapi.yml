@@ -140,6 +140,33 @@ paths:
           description: Too many requests.
 components:
   schemas:
+    VirtualTagRule:
+      type: object
+      description: A rule within a virtual tag that defines filtering criteria for resource allocation.
+      properties:
+        name:
+          type: string
+          description: The name or value assigned when the rule matches.
+        filter:
+          $ref: '#/components/schemas/FilterObject'
+    VirtualTag:
+      type: object
+      description: A virtual tag configuration used for resource allocation and filtering.
+      properties:
+        id:
+          type: string
+          description: The unique identifier of the virtual tag.
+        accountId:
+          type: string
+          description: The unique identifier of the account associated with the virtual tag.
+        name:
+          type: string
+          description: The name of the virtual tag.
+        rules:
+          type: array
+          description: An array of rule objects that define the filtering criteria.
+          items:
+            $ref: '#/components/schemas/VirtualTagRule'
     VirtualTagInput:
       type: object
       description: Input for creating a virtual tag.
@@ -197,33 +224,6 @@ components:
           description: Logical OR grouping of filter conditions.
           items:
             $ref: '#/components/schemas/FilterObject'
-    VirtualTag:
-      type: object
-      description: A virtual tag configuration used for resource allocation and filtering.
-      properties:
-        id:
-          type: string
-          description: The unique identifier of the virtual tag.
-        accountId:
-          type: string
-          description: The unique identifier of the account associated with the virtual tag.
-        name:
-          type: string
-          description: The name of the virtual tag.
-        rules:
-          type: array
-          description: An array of rule objects that define the filtering criteria.
-          items:
-            $ref: '#/components/schemas/VirtualTagRule'
-    VirtualTagRule:
-      type: object
-      description: A rule within a virtual tag that defines filtering criteria for resource allocation.
-      properties:
-        name:
-          type: string
-          description: The name or value assigned when the rule matches.
-        filter:
-          $ref: '#/components/schemas/FilterObject'
   securitySchemes:
     clientId:
       type: apiKey
