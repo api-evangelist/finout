@@ -103,22 +103,6 @@ paths:
           description: Too many requests.
 components:
   schemas:
-    CostGuardScan:
-      type: object
-      description: A CostGuard scan configuration.
-      properties:
-        id:
-          type: string
-          description: The unique identifier of the scan.
-        name:
-          type: string
-          description: The name of the scan.
-        lastRunTime:
-          type: string
-          description: The last time the scan was executed.
-        status:
-          type: string
-          description: The current status of the scan.
     FilterObject:
       type: object
       description: A filter object used to narrow query results. Supports logical AND/OR grouping and various operators for matching conditions.
@@ -161,6 +145,22 @@ components:
           description: Logical OR grouping of filter conditions.
           items:
             $ref: '#/components/schemas/FilterObject'
+    CostGuardScan:
+      type: object
+      description: A CostGuard scan configuration.
+      properties:
+        id:
+          type: string
+          description: The unique identifier of the scan.
+        name:
+          type: string
+          description: The name of the scan.
+        lastRunTime:
+          type: string
+          description: The last time the scan was executed.
+        status:
+          type: string
+          description: The current status of the scan.
   securitySchemes:
     clientId:
       type: apiKey

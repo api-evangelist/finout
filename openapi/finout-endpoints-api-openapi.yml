@@ -64,6 +64,30 @@ paths:
           description: Too many requests.
 components:
   schemas:
+    Endpoint:
+      type: object
+      description: A notification endpoint configuration.
+      properties:
+        id:
+          type: string
+          description: The unique identifier of the endpoint.
+        name:
+          type: string
+          description: The name of the endpoint.
+        type:
+          type: string
+          description: The type of endpoint.
+          enum:
+          - email
+          - slack
+          - teams
+        configuration:
+          type: object
+          description: Endpoint-specific configuration.
+          properties:
+            to:
+              type: string
+              description: The destination address. An email address for email endpoints or a webhook URL for Slack/Teams endpoints.
     EndpointInput:
       type: object
       description: Input for creating a notification endpoint.
@@ -86,30 +110,6 @@ components:
           type: object
           required:
           - to
-          description: Endpoint-specific configuration.
-          properties:
-            to:
-              type: string
-              description: The destination address. An email address for email endpoints or a webhook URL for Slack/Teams endpoints.
-    Endpoint:
-      type: object
-      description: A notification endpoint configuration.
-      properties:
-        id:
-          type: string
-          description: The unique identifier of the endpoint.
-        name:
-          type: string
-          description: The name of the endpoint.
-        type:
-          type: string
-          description: The type of endpoint.
-          enum:
-          - email
-          - slack
-          - teams
-        configuration:
-          type: object
           description: Endpoint-specific configuration.
           properties:
             to:

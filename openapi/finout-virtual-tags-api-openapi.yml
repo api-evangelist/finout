@@ -149,39 +149,6 @@ components:
           description: The name or value assigned when the rule matches.
         filter:
           $ref: '#/components/schemas/FilterObject'
-    VirtualTag:
-      type: object
-      description: A virtual tag configuration used for resource allocation and filtering.
-      properties:
-        id:
-          type: string
-          description: The unique identifier of the virtual tag.
-        accountId:
-          type: string
-          description: The unique identifier of the account associated with the virtual tag.
-        name:
-          type: string
-          description: The name of the virtual tag.
-        rules:
-          type: array
-          description: An array of rule objects that define the filtering criteria.
-          items:
-            $ref: '#/components/schemas/VirtualTagRule'
-    VirtualTagInput:
-      type: object
-      description: Input for creating a virtual tag.
-      required:
-      - name
-      - rules
-      properties:
-        name:
-          type: string
-          description: The name of the virtual tag.
-        rules:
-          type: array
-          description: An array of rule objects that define the filtering criteria.
-          items:
-            $ref: '#/components/schemas/VirtualTagRule'
     FilterObject:
       type: object
       description: A filter object used to narrow query results. Supports logical AND/OR grouping and various operators for matching conditions.
@@ -224,6 +191,39 @@ components:
           description: Logical OR grouping of filter conditions.
           items:
             $ref: '#/components/schemas/FilterObject'
+    VirtualTag:
+      type: object
+      description: A virtual tag configuration used for resource allocation and filtering.
+      properties:
+        id:
+          type: string
+          description: The unique identifier of the virtual tag.
+        accountId:
+          type: string
+          description: The unique identifier of the account associated with the virtual tag.
+        name:
+          type: string
+          description: The name of the virtual tag.
+        rules:
+          type: array
+          description: An array of rule objects that define the filtering criteria.
+          items:
+            $ref: '#/components/schemas/VirtualTagRule'
+    VirtualTagInput:
+      type: object
+      description: Input for creating a virtual tag.
+      required:
+      - name
+      - rules
+      properties:
+        name:
+          type: string
+          description: The name of the virtual tag.
+        rules:
+          type: array
+          description: An array of rule objects that define the filtering criteria.
+          items:
+            $ref: '#/components/schemas/VirtualTagRule'
   securitySchemes:
     clientId:
       type: apiKey
