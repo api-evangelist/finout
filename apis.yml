@@ -1,5 +1,8 @@
 aid: finout
 url: https://raw.githubusercontent.com/api-evangelist/finout/refs/heads/main/apis.yml
+x-docs-platform: gitbook
+x-docs-platform-confidence: high
+x-docs-platform-checked: 2026-10-03
 apis:
 - aid: finout:finout-cost-api
   name: Finout Cost API
@@ -258,6 +261,9 @@ maintainers:
     email: info@apievangelist.com
 specificationVersion: '0.23'
 common:
+  - type: CapabilityMap
+    url: capabilities/finout-capability-edges.yml
+    name: Finout Business Capability Map
   - type: PostmanWorkspace
     url: https://www.postman.com/kinlaneapi/finout/overview
   - type: AgenticAccess
