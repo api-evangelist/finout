@@ -1,0 +1,45 @@
+slug: finout
+provider: Finout
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 3
+edges:
+- tag: Cost
+  spec_file: finout-cost-api-openapi.yml
+  capability_id: BC-600.80
+  capability_id_l1: BC-600
+  capability_name: IT Financial Management
+  confidence: 0.88
+  evidence: POST /view queryCosts 'Finout Query costs for a view'; 'access to powerful cloud cost management
+    tools, enabling you to integrate, analyze, and optimize your cloud expenses'
+  reason: Querying and analysing cloud spend is IT Financial Management (IT spend, showback, cost optimisation).
+    FinOps cost analytics maps cleanly to BC-600.80.
+- tag: CostGuard
+  spec_file: finout-costguard-api-openapi.yml
+  capability_id: BC-600.80
+  capability_id_l1: BC-600
+  capability_name: IT Financial Management
+  confidence: 0.85
+  evidence: GET /cost-guard/scans listCostGuardScans 'Get all CostGuard scans'; POST /cost-guard/scans-recommendations
+    getCostGuardScanRecommendations; schema CostGuardScan
+  reason: Scans producing cost-saving recommendations over cloud infrastructure are IT cost optimisation
+    activity, i.e. IT Financial Management.
+- tag: Virtual Tags
+  spec_file: finout-virtual-tags-api-openapi.yml
+  capability_id: BC-600.80
+  capability_id_l1: BC-600
+  capability_name: IT Financial Management
+  confidence: 0.8
+  evidence: POST /virtual-tag createVirtualTag 'Create a virtual tag'; schemas VirtualTagRule, VirtualTag,
+    FilterObject
+  reason: Full lifecycle of virtual tags with rules and filters is the mechanism by which cloud spend
+    is allocated to business dimensions — IT spend allocation/chargeback, i.e. IT Financial Management.
