@@ -261,6 +261,12 @@ maintainers:
     email: info@apievangelist.com
 specificationVersion: '0.23'
 common:
+  - type: Plans
+    url: plans/finout-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/finout-rate-limits.yml
+  - type: FinOps
+    url: finops/finout-finops.yml
   - type: CapabilityMap
     url: capabilities/finout-capability-edges.yml
     name: Finout Business Capability Map
