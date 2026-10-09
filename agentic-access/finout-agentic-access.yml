@@ -1,22 +1,120 @@
-generated: '2026-07-15'
+generated: '2026-09-23'
 method: generated
-source: openapi/finout-api-openapi.yml
+source: openapi/finout-cost-api-openapi.yml, openapi/finout-costguard-api-openapi.yml, openapi/finout-endpoints-api-openapi.yml,
+  openapi/finout-query-language-api-openapi.yml, openapi/finout-virtual-tag-metadata-api-openapi.yml,
+  openapi/finout-virtual-tags-api-openapi.yml
 description: Recommended x-agentic-access execution contracts, classified heuristically from
   the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
   audience per deployment. See research/curity/agentic-governance/.
 summary:
   operations: 15
   by_action_class:
-    acting: 7
-    connected: 8
+    connected: 10
+    acting: 5
   by_consequence:
-    write: 7
-    read: 8
+    read: 10
+    write: 5
   human_in_the_loop_required: 0
 operations:
 - path: /view
   method: post
   operationId: queryCosts
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /cost-guard/scans
+  method: get
+  operationId: listCostGuardScans
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /cost-guard/scans-recommendations
+  method: post
+  operationId: getCostGuardScanRecommendations
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /endpoints
+  method: get
+  operationId: listEndpoints
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /endpoints
+  method: post
+  operationId: createEndpoint
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /megabill/query-language/keys
+  method: get
+  operationId: getMegaBillKeys
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /megabill/query-language/values/{costCenter}/{key}
+  method: get
+  operationId: getMegaBillKeyValues
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /megabill/query-language/virtual-tags
+  method: get
+  operationId: getMegaBillVirtualTags
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /virtual-tags/{virtualTagId}/metadata
+  method: get
+  operationId: getVirtualTagMetadata
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /virtual-tags/{virtualTagId}/metadata
+  method: put
+  operationId: updateVirtualTagMetadata
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -85,114 +183,6 @@ operations:
 - path: /virtual-tag/{id}
   method: delete
   operationId: deleteVirtualTag
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /virtual-tags/{virtualTagId}/metadata
-  method: get
-  operationId: getVirtualTagMetadata
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /virtual-tags/{virtualTagId}/metadata
-  method: put
-  operationId: updateVirtualTagMetadata
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /megabill/query-language/keys
-  method: get
-  operationId: getMegaBillKeys
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /megabill/query-language/values/{costCenter}/{key}
-  method: get
-  operationId: getMegaBillKeyValues
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /megabill/query-language/virtual-tags
-  method: get
-  operationId: getMegaBillVirtualTags
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /cost-guard/scans
-  method: get
-  operationId: listCostGuardScans
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /cost-guard/scans-recommendations
-  method: post
-  operationId: getCostGuardScanRecommendations
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /endpoints
-  method: get
-  operationId: listEndpoints
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /endpoints
-  method: post
-  operationId: createEndpoint
   x-agentic-access:
     action-class: acting
     consequence: write

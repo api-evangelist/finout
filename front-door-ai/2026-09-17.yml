@@ -1,0 +1,39 @@
+# Front Door AI Index — finout — 2026-09-17
+# AI vocabulary counted on the provider's root page. Generated; do not edit.
+# `score` is null unless ownership is `own` — see front_door_ai.py.
+front_door_ai:
+  slug: finout
+  lexicon_version: '1.0'
+  probed_at: '2026-09-25'
+  host: www.finout.io
+  final_host: www.finout.io
+  ownership: own
+  owner: finout
+  shares_host_with: null
+  inherited_from: null
+  alias_of: null
+  verdict: scored
+  score: 67
+  band: 6
+  band_label: dominant
+  host_score: 67
+  density: 37.79
+  words: 1773
+  tiers:
+    agentic: 12
+    core: 38
+    model: 17
+  ambiguous: 21
+  top_terms:
+    AI: 38
+    agent: 21
+    Anthropic: 6
+    OpenAI: 6
+    AI agent: 5
+    AI assistant: 2
+    Claude: 2
+    MCP: 2
+    agentic: 2
+    Bedrock: 1
+    GPT: 1
+    Vertex AI: 1
